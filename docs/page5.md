@@ -25,3 +25,5 @@ This technique involves training a smaller, simpler model to mimic the output of
 This technique involves designing custom hardware or using specialized processors to speed up the computation required for machine learning, which can greatly improve the performance of embedded devices.
 
 Overall, optimization techniques for embedded devices are focused on reducing the size, complexity, and computational requirements of machine learning models, while still maintaining their accuracy and effectiveness.
+
+![comparision](.\images\summary_opt_techniques.png)
