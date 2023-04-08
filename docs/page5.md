@@ -26,4 +26,4 @@ This technique involves designing custom hardware or using specialized processor
 
 Overall, optimization techniques for embedded devices are focused on reducing the size, complexity, and computational requirements of machine learning models, while still maintaining their accuracy and effectiveness.
 
-![comparision](summary_opt_techniques.png)
+![comparision](images\summary_opt_techniques.png)
