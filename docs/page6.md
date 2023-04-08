@@ -1,4 +1,4 @@
-## Pruning
+# Pruning
 
 Pruning is a technique used in machine learning to reduce the size and complexity of a trained model. It involves removing unnecessary connections or neurons from a neural network, which can significantly reduce its size and improve its speed, without sacrificing its accuracy.
 

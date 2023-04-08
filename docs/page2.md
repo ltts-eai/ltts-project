@@ -1,4 +1,4 @@
-# Guideline to build EAI
+# Guideline to build framework
 
 ## 1.Define the scope and requirements of the framework:
 

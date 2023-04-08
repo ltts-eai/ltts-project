@@ -12,7 +12,7 @@ This technique involves reducing the precision of model weights and activations,
 
 This technique involves removing unnecessary connections or neurons from a model, which can reduce its size and improve its speed.
 
-## Compression:
+## [Compression:](page9.md)
 
 This technique involves using algorithms to compress model weights and activations, which can reduce the amount of memory required to store a model without significantly impacting its performance.
 
