@@ -20,7 +20,7 @@ This technique involves using algorithms to compress model weights and activatio
 
 This technique involves training a smaller, simpler model to mimic the output of a larger, more complex model, which can reduce the size and complexity of a model without sacrificing its accuracy.
 
-## Hardware Acceleration:
+## [Hardware Acceleration:](page10.md)
 
 This technique involves designing custom hardware or using specialized processors to speed up the computation required for machine learning, which can greatly improve the performance of embedded devices.
 
