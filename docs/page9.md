@@ -23,3 +23,4 @@ This technique involves removing unnecessary connections or neurons from a model
 Compression techniques can be applied to a model after it has been trained and can be used in conjunction with other optimization techniques, such as quantization and pruning, to further reduce the size and complexity of a model. Compression can also be applied iteratively, where a model is compressed and then retrained, to achieve even greater reductions in size and complexity.
 
 Overall, compression is a useful technique for reducing the storage requirements of machine learning models, particularly in scenarios where memory is limited, such as on embedded devices or in cloud-based applications with high storage costs.
+
