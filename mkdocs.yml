@@ -2,12 +2,11 @@ site_name: LTTS - EAI
 site_url: https://example.com/
 
 theme:
-  name: material
+  name: readthedocs
   features:
     - navigation.tabs
     - navigation.sections
     - toc.integrate
-    - navigation.top
     - search.suggest
     - search.highlight
     - content.tabs.link
