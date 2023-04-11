@@ -16,4 +16,6 @@ Using Pytorch GPU acceleration is relatively straightforward. First, you need to
 
 --->PyTorch supports training deep learning models on multiple GPUs in parallel, which can further accelerate the training process. You can use PyTorch's **'torch.nn.parallel.DistributedDataParallel'** module to parallelize the training process across multiple GPUs. This module automatically handles data parallelism and gradient synchronization across GPUs, allowing you to scale up the training process to multiple GPUs.
 
+GPU acceleration is a powerful technique that can significantly speed up the training and inference process of deep learning models in PyTorch. By leveraging the capabilities of GPUs effectively, you can achieve faster and more efficient deep learning workflows.
+
 
