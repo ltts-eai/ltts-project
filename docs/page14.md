@@ -9,8 +9,11 @@ Using Pytorch GPU acceleration is relatively straightforward. First, you need to
 
 
 --->PyTorch integrates with CUDA, which is a parallel computing platform and programming model for NVIDIA GPUs. Many popular deep learning libraries, such as cuDNN, cuBLAS, and cuFFT, are CUDA-enabled and can be used with PyTorch to accelerate computation on the GPU. You can install these libraries separately and PyTorch will automatically leverage them when available.
+
 --->GPUs are optimized for batch processing, where multiple inputs can be processed in parallel. When processing large datasets, batching the data and processing it in batches can significantly accelerate the computation on the GPU. PyTorch provides the ability to batch the data using the **'torch.utils.data.DataLoader'** class, which can be used in combination with the **'torch.nn.Module'** and **'torch.optim'** modules for efficient batch processing on the GPU.
+
 --->GPU memory is a valuable resource, and it's important to manage it effectively. Deep learning models with large numbers of parameters or large input data can quickly consume a lot of GPU memory. You can monitor the GPU memory usage using the **'torch.cuda.max_memory_allocated()'** and **'torch.cuda.memory_allocated()'** functions, and optimize your code to minimize unnecessary memory consumption, such as avoiding redundant computations or unnecessary copies between CPU and GPU
+
 --->PyTorch supports training deep learning models on multiple GPUs in parallel, which can further accelerate the training process. You can use PyTorch's **'torch.nn.parallel.DistributedDataParallel'** module to parallelize the training process across multiple GPUs. This module automatically handles data parallelism and gradient synchronization across GPUs, allowing you to scale up the training process to multiple GPUs.
 
 
