@@ -1,3 +1,4 @@
+# Kernal fusion
 
 Kernel fusion refers to the process of combining multiple convolutional kernels or filters into a single kernel in a convolutional neural network (CNN) for more efficient computation.
 
