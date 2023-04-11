@@ -13,7 +13,7 @@ As such, we will need to optimize our performance to size, when designing our mo
 
 To overly simplify for the gist of understanding machine learning models, a neural network is a set of nodes with weights(W) that connect between nodes. You can think of this as a set of instructions that we optimize to increase our likelihood of generating our desired class. The more specific this set of instructions are, the greater our model size, which is dependent on the size of our parameters (our configuration variables such as weight).
 
-![alt text](docs/images/Picture1.png)
+![alt text](images/Picture1.png)
 
 #### TensorFlow Lite to the rescue!
 TensorFlow Lite deals with the Quantisation and prunning and does a great job in abstracting the hard parts of model compression.
