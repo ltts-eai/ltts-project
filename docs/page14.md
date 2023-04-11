@@ -7,6 +7,18 @@ Pytorch GPU acceleration is a method of using the GPU to speed up the training a
 ### How to Use Pytorch GPU Acceleration:
 Using Pytorch GPU acceleration is relatively straightforward. First, you need to install the Pytorch library on your machine. Once installed, you can then use the GPU to speed up the training and inference of deep learning models. To do this, you need to specify the GPU as the device when creating the model. You can also use the distributed training feature to train on multiple GPUs. Additionally, you can use the automatic mixed precision feature to further improve the performance of deep learning models.
 
+```python 
+import torch
+#Create a model
+model = MyModel()
+#Move model to GPU
+model.to('cuda')
+#Create input data
+input_data = torch.randn(64, 3, 32, 32)
+#Move input data to GPU
+input_data = input_data.to('cuda')
+```
+
 
 --->PyTorch integrates with CUDA, which is a parallel computing platform and programming model for NVIDIA GPUs. Many popular deep learning libraries, such as cuDNN, cuBLAS, and cuFFT, are CUDA-enabled and can be used with PyTorch to accelerate computation on the GPU. You can install these libraries separately and PyTorch will automatically leverage them when available.
 
