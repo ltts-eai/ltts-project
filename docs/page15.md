@@ -271,6 +271,29 @@ print('Test accuracy TFLITE model :', acc)
 ![op](images/Screenshot%202023-04-12%20121804.png)
 
 
+#### Analysis of Results
+![an](images/analysis.png)
+
+![an](images/Screenshot%202023-04-12%20144227.png)
+
+
+#### Pros and Cons of TensorFlowLite
+
+**Pros:**
+- Easier to implement model compression
+- Minimal effect on accuracy (Depending on model)
+- Major speed up in prediction
+**Cons:**
+- Requires the latest Tensorflow version 2
+- Relatively new , Many operations (ops) are not supported yet such as SELU
+- Requires converting model which can fail
+- Possible complications when running inference compared to our good friend.predict() as it is more convoluted.
+
+
+#### Conclusion
+Despite its cons, TensorFlow Lite serves as a powerful tool with great potential that surpassed my expectations. I foresee in the near future, model compression being more widely used as the demand for AI in embedded devices inevitably grows, which gives TFLite a reason to provide greater operation coverage. With its shortcomings that can be mitigated by custom implementations, TensorFlow Lite for model compression is worth a shot.
+
+
 
 
 
