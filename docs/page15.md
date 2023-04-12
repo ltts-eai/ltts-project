@@ -13,7 +13,7 @@ As such, we will need to optimize our performance to size, when designing our mo
 
 To overly simplify for the gist of understanding machine learning models, a neural network is a set of nodes with weights(W) that connect between nodes. You can think of this as a set of instructions that we optimize to increase our likelihood of generating our desired class. The more specific this set of instructions are, the greater our model size, which is dependent on the size of our parameters (our configuration variables such as weight).
 
-![alt text](images/Picture1.png)
+![pic](images/Picture1.png)
 
 #### TensorFlow Lite to the rescue!
 TensorFlow Lite deals with the Quantisation and prunning and does a great job in abstracting the hard parts of model compression.
@@ -51,6 +51,52 @@ You might be quick to think that reducing the amount of information we store for
 Imagine if, in our dataset, we get lucky, every time we try to detect a cookie our dataset shows us a chocolate chip cookie, our cookie detection would get a high training accuracy, however, if in real-life we only have raisin cookies, it would have a low test accuracy. Generalization is like blurring our chocolate chip so that our model realizes as long as there is this blob, it is a cookie.The same can be said for other compression methods such as pruning. It is in this vein whereby dropout also can improve unseen accuracy as randomly dropping nodes during training promotes generalization as well.
 
 #### Let’s try it out!
+
+```python
+import os
+import tensorflow as tf
+from tensorflow import keras
+import numpy as np
+import matplotlib.pyplot as plt
+from tensorflow.keras.layers import Flatten
+from tensorflow.keras.layers import Dense
+from tensorflow.keras.losses import SparseCategoricalCrossentropy
+from sklearn.metrics import accuracy_score
+```
+```python
+print(tf.__version__)
+```
+![op](images/Screenshot%202023-04-12%20121338.png)
+```
+def get_file_size(file_path):
+    size = os.path.getsize(file_path)
+    return size
+```
+```
+def convert_bytes(size, unit=None):
+    if unit == "KB":
+        return print('File size: ' + str(round(size / 1024, 3)) + ' Kilobytes')
+    elif unit == "MB":
+        return print('File size: ' + str(round(size / (1024 * 1024), 3)) + ' Megabytes')
+    else:
+        return print('File size: ' + str(size) + ' bytes')
+```
+##### Import the fasion MNIST dataset
+```
+ fashion_mnist = keras.datasets.fashion_mnist
+(train_images, train_labels), (test_images, test_labels) = fashion_mnist.load_data()
+```
+![op](images/Screenshot%202023-04-12%20121417.png)
+```
+class_names = ['T-shirt/top', 'Trouser', 'Pullover', 'Dress', 'Coat',
+               'Sandal', 'Shirt', 'Sneaker', 'Bag', 'Ankle boot']
+```
+```
+train_images.shape
+```
+```
+len(train_labels)
+```
 
 
 
