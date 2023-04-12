@@ -91,12 +91,186 @@ def convert_bytes(size, unit=None):
 class_names = ['T-shirt/top', 'Trouser', 'Pullover', 'Dress', 'Coat',
                'Sandal', 'Shirt', 'Sneaker', 'Bag', 'Ankle boot']
 ```
+##### Explore the data
 ```
 train_images.shape
 ```
+![op](images/Screenshot%202023-04-12%20121432.png)
 ```
 len(train_labels)
 ```
+![op](images/Screenshot%202023-04-12%20121440.png)
+```
+np.unique(train_labels)
+```
+![op](images/Screenshot%202023-04-12%20121451.png)
+```
+test_images.shape
+```
+![op](images/Screenshot%202023-04-12%20121502.png)
+```
+len(test_labels)
+```
+![op](images/Screenshot%202023-04-12%20121517.png)
+
+##### Preprocessing 
+
+```
+plt.figure()
+plt.imshow(train_images[88])
+plt.colorbar()
+plt.grid(False)
+plt.show()
+```
+![op](images/Screenshot%202023-04-12%20121541.png)
+```
+train_images = train_images / 255.0
+test_images = test_images / 255.0
+```
+```
+model = keras.Sequential([
+    Flatten(input_shape=(28, 28)),
+    Dense(128, activation='relu'),
+    Dense(10)
+])
+```
+```
+model.compile(optimizer='adam',
+              loss= SparseCategoricalCrossentropy(from_logits=True),
+              metrics=['accuracy'])
+```
+```
+model.fit(train_images, train_labels, epochs=15)
+```
+![op](images/Screenshot%202023-04-12%20121557.png)
+```
+KERAS_MODEL_NAME = "tf_fashion.h5"
+```
+```
+model.save(KERAS_MODEL_NAME)
+```
+##### Inference Time of tensorflow model 
+```
+model = tf.keras.models.load_model('tf_fashion.h5')
+```
+```
+_ = model.predict(test_images[:1])
+```
+![op](images/Screenshot%202023-04-12%20121615.png)
+```
+start_time = time.time()
+output = model.predict(test_images[:1])
+end_time = time.time()
+inference_time = end_time - start_time
+
+print('Inference time:', inference_time)
+```
+![op](images/Screenshot%202023-04-12%20121621.png)
+
+##### Size and Accuracy of the model
+
+```
+convert_bytes(get_file_size(KERAS_MODEL_NAME), "MB")
+```
+![op](images/Screenshot%202023-04-12%20121632.png)
+```
+test_loss, test_acc = model.evaluate(test_images,  test_labels, verbose=2)
+print('\nTest accuracy:', test_acc)
+```
+![op](images/Screenshot%202023-04-12%20121647.png)
+
+##### Tflite Model
+
+```
+sTF_LITE_MODEL_FILE_NAME = "tf_lite_model.tflite"
+```
+```
+tf_lite_converter = tf.lite.TFLiteConverter.from_keras_model(model)
+tflite_model = tf_lite_converter.convert()
+```
+```
+ tflite_model_name = TF_LITE_MODEL_FILE_NAME
+open(tflite_model_name, "wb").write(tflite_model)
+```
+![op](images/Screenshot%202023-04-12%20121712.png)
+
+##### Size of the Tflite model
+
+```
+convert_bytes(get_file_size(TF_LITE_MODEL_FILE_NAME), "KB")
+```
+![op](images/Screenshot%202023-04-12%20121720.png)
+
+##### Check input tensor shape
+
+```
+interpreter = tf.lite.Interpreter(model_path = TF_LITE_MODEL_FILE_NAME)
+input_details = interpreter.get_input_details()
+output_details = interpreter.get_output_details()
+print("Input Shape:", input_details[0]['shape'])
+print("Input Type:", input_details[0]['dtype'])
+print("Output Shape:", output_details[0]['shape'])
+print("Output Type:", output_details[0]['dtype'])
+```
+![op](images/Screenshot%202023-04-12%20121726.png)
+
+##### Resize tensor shape
+
+```
+interpreter.resize_tensor_input(input_details[0]['index'], (10000, 28, 28))
+interpreter.resize_tensor_input(output_details[0]['index'], (10000, 10))
+interpreter.allocate_tensors()
+input_details = interpreter.get_input_details()
+output_details = interpreter.get_output_details()
+print("Input Shape:", input_details[0]['shape'])
+print("Input Type:", input_details[0]['dtype'])
+print("Output Shape:", output_details[0]['shape'])
+print("Output Type:", output_details[0]['dtype'])
+```
+![op](images/Screenshot%202023-04-12%20121734.png)
+```
+test_images.dtype
+```
+![op](images/Screenshot%202023-04-12%20121738.png)
+```
+test_imgs_numpy = np.array(test_images, dtype=np.float32)
+```
+```
+interpreter.set_tensor(input_details[0]['index'], test_imgs_numpy)
+interpreter.invoke()
+tflite_model_predictions = interpreter.get_tensor(output_details[0]['index'])
+print("Prediction results shape:", tflite_model_predictions.shape)
+prediction_classes = np.argmax(tflite_model_predictions, axis=1)
+```
+![op](images/Screenshot%202023-04-12%20121749.png)
+```
+interpreter = tf.lite.Interpreter(model_path='tf_lite_model.tflite')
+interpreter.allocate_tensors()
+```
+
+##### Inference time of the Tflite model
+```
+ start_time = time.time()
+    interpreter.invoke()
+    end_time = time.time()
+    inference_time = end_time - start_time
+    inference_times.append(inference_time)
+
+ print('Average inference time:', sum(inference_times) / len(inference_times))
+```
+![op](images/Screenshot%202023-04-12%20121758.png)
+
+##### Accuracy of the Tflite model
+
+```
+acc = accuracy_score(prediction_classes, test_labels) 
+```
+```
+print('Test accuracy TFLITE model :', acc)
+```
+![op](images/Screenshot%202023-04-12%20121804.png)
+
+
 
 
 
