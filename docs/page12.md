@@ -47,4 +47,4 @@ If you are building ONNX from source, it is recommended that you also build Prot
 
 The instructions in this README assume you are using Visual Studio. It is recommended that you run all the commands from a shell started from "x64 Native Tools Command Prompt for VS 2019" and keep the build system generator for cmake (e.g., cmake -G "Visual Studio 16 2019") consistent while building protobuf as well as ONNX.
 
-![conversion](images/img2.JPG)
+![conversion](images/img2.PNG)
