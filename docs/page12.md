@@ -35,16 +35,11 @@ Before building from source uninstall any existing versions of onnx pip uninstal
 
 c++17 or higher C++ compiler version is required to build ONNX from source on Windows. For other platforms, please use C++11 or higher versions.
 
-Generally speaking, you need to install protobuf C/C++ libraries and tools before proceeding forward. Then depending on how you installed protobuf, you need to set environment variable CMAKE_ARGS to "-DONNX_USE_PROTOBUF_SHARED_LIBS=ON" or "-DONNX_USE_PROTOBUF_SHARED_LIBS=OFF". For example, you may need to run the following command:
-
-Windows:
-
-set CMAKE_ARGS="-DONNX_USE_PROTOBUF_SHARED_LIBS=ON"
-The ON/OFF depends on what kind of protobuf library you have. Shared libraries are files ending with *.dll/*.so/*.dylib. Static libraries are files ending with *.a/*.lib. This option depends on how you get your protobuf library and how it was built. And it is default OFF. You don't need to run the commands above if you'd prefer to use a static protobuf library.
 
 Windows
 If you are building ONNX from source, it is recommended that you also build Protobuf locally as a static library. The version distributed with conda-forge is a DLL, but ONNX expects it to be a static library. Building protobuf locally also lets you control the version of protobuf. The tested and recommended version is 3.20.2.
 
 The instructions in this README assume you are using Visual Studio. It is recommended that you run all the commands from a shell started from "x64 Native Tools Command Prompt for VS 2019" and keep the build system generator for cmake (e.g., cmake -G "Visual Studio 16 2019") consistent while building protobuf as well as ONNX.
 
-![conversion](images/img2.PNG)
+![Frameworks](images/img2.PNG)
+
