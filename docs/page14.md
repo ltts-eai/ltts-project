@@ -268,6 +268,7 @@ Usually, the learning rate is set to a higher value at the beginning of the trai
 The amount of different learning rate schedulers can be overwhelming. An overview of how different pre-defined learning rate schedulers in PyTorch adjust the learning rate during training:
 
 ~StepLR
+
 The StepLR reduces the learning rate by a multiplicative factor after every predefined number of training steps.
 ```python
 from torch.optim.lr_scheduler import StepLR
@@ -278,6 +279,7 @@ scheduler = StepLR(optimizer,
 ```
 
 ~MultiStepLR
+
 The MultiStepLR — similarly to the StepLR — also reduces the learning rate by a multiplicative factor but after each pre-defined milestone.
 ```python
 from torch.optim.lr_scheduler import MultiStepLR
@@ -288,6 +290,7 @@ scheduler = MultiStepLR(optimizer,
 ```
 
 ~ConstantLR
+
 The ConstantLR reduces learning rate by a multiplicative factor until the number of training steps reaches a pre-defined milestone.
 ```python
 from torch.optim.lr_scheduler import ConstantLR
@@ -299,6 +302,7 @@ scheduler = ConstantLR(optimizer,
 As you might have already noticed, if your starting factor is smaller than 1, this learning rate scheduler increases the learning rate over the course of the training process instead of decreasing it.
 
 ~LinearLR
+
 The LinearLR — similarly to the ConstantLR— also reduces the learning rate by a multiplicative factor at the beginning of the training. But it linearly increases the learning rate over a defined number of training steps until it reaches its originally set learning rate.
 ```python
 from torch.optim.lr_scheduler import LinearLR
@@ -310,6 +314,7 @@ scheduler = LinearLR(optimizer,
 If your starting factor is smaller than 1, this learning rate scheduler also increases the learning rate over the course of the training process instead of decreasing it.
 
 ~ExponentialLR
+
 The ExponentialLR reduces learning rate by a multiplicative factor at every training step.
 ```python
 from torch.optim.lr_scheduler import ExponentialLR
@@ -319,6 +324,7 @@ scheduler = ExponentialLR(optimizer,
 ```
 
 ~PolynomialLR
+
 The PolynomialLR reduces learning rate by using a polynomial function for a defined number of steps.
 ```python
 from torch.optim.lr_scheduler import PolynomialLR
@@ -328,6 +334,7 @@ scheduler = PolynomialLR(optimizer,
                          power = 1) # The power of the polynomial.
 ```
 ~CosineAnnealingLR
+
 The CosineAnnealingLR reduces learning rate by a cosine function.
 
 While you could technically schedule the learning rate adjustments to follow multiple periods, the idea is to decay the learning rate over half a period for the maximum number of iterations.
@@ -341,6 +348,7 @@ scheduler = CosineAnnealingLR(optimizer,
 ```
 
 ~CosineAnnealingWarmRestartsLR
+
 The CosineAnnealingWarmRestarts is similar to the cosine annealing schedule. However, it allows you to restart the LR schedule with the initial LR at, e.g., each epoch.
 ```python
 from torch.optim.lr_scheduler import CosineAnnealingWarmRestarts
@@ -352,6 +360,7 @@ scheduler = CosineAnnealingWarmRestarts(optimizer,
 This is called a warm restart and was introduced in 2017 [1]. Increasing the LR causes the model to diverge. However, this intentional divergence enables the model to escape local minima and find an even better global minimum.
 
 ~CyclicLR
+
 The CyclicLR adjusted the learning rate according to a cyclical learning rate policy, which is based on the concept of warm restarts which we just discussed in the previous section. In PyTorch there are three built-in policies.
 ```python
 from torch.optim.lr_scheduler import CyclicLR
@@ -364,6 +373,7 @@ scheduler = CyclicLR(optimizer,
 ```
 
 ~OneCycleLR
+
 The OneCycleLR reduces learning rate according to the 1cycle learning rate policy.
 In contrast to many other learning rate schedulers, the learning rate is not only decreased over the training process. Instead, the learning rate increases from an initial learning rate to some maximum learning rate and then decreases again.
 ```python
@@ -377,10 +387,13 @@ scheduler = OneCycleLR(optimizer,
                        anneal_strategy = 'cos') # Specifies the annealing strategy
 ```
 ~ReduceLROnPlateauLR
+
 The ReduceLROnPlateau reduces the learning rate by when the metric has stopped improving. As you can guess, this is difficult to visualize because the learning rate reduction timing depends on your model, data, and hyperparameters.
 
 ~Custom Learning Rate Schedulers with Lambda Functions
+
 If the built-in learning rate schedulers don’t fit your needs, you have the possibility to define a scheduler with lambda functions. The lambda function is a function that returns a multiplicative factor based on the epoch value.
+
 The LambdaLR adjusts the learning rate by applying the multiplicative factor from the lambda function to the initial LR.
 ```python
 lr_epoch[t] = lr_initial * lambda(epoch)
