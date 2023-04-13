@@ -1,5 +1,20 @@
 # EAI frameworks
 
+## Comparision study between the available different frameworks:
+
+![COM](images/Screenshot%202023-04-12%20144227.png)
+![com](images/Screenshot%202023-04-13%20140128.png)
+
+## **Tensorflow:**
+TensorFlow is an open-source machine learning library developed by Google that provides a framework for building and training neural networks. It is widely used for a wide range of applications including image and speech recognition, natural language processing, recommendation systems, and many other tasks related to machine learning and deep learning.
+With TensorFlow, you can:
+1.	Build and train neural networks: TensorFlow provides a high-level API for defining, training, and evaluating neural networks. You can create various types of neural network architectures, such as convolutional neural networks (CNNs) for image recognition, recurrent neural networks (RNNs) for sequence data, and transformers for natural language processing.
+2.	Perform data preprocessing: TensorFlow has built-in functions for common data preprocessing tasks such as image and text data augmentation, normalization, and feature scaling. These capabilities help you prepare your data for machine learning tasks.
+3.	Deploy machine learning models: TensorFlow allows you to deploy trained models to various platforms, including cloud servers, mobile devices, and embedded systems. This enables you to use your machine learning models in real-world applications.
+4.	Perform transfer learning: TensorFlow supports transfer learning, which allows you to use pre-trained models as a starting point for training your own models. This can significantly speed up the training process and improve model performance, especially when you have limited data.
+5.	Optimize performance: TensorFlow provides various optimization techniques, such as graph optimizations, model quantization, and hardware accelerations, to optimize the performance of your machine learning models for inference on different devices.
+6.	Experiment with different machine learning techniques: TensorFlow offers a flexible and extensible platform for experimenting with different machine learning techniques and algorithms. You can implement and compare various approaches to see which one works best for your specific use case.
+
 ## **TensorFlow Lite**:
 
 TensorFlow Lite is a lightweight version of the TensorFlow framework that is designed specifically for mobile and embedded devices. It is widely used in various applications such as image recognition, speech recognition, and natural language processing. [steps](page4.md)
