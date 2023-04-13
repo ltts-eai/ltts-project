@@ -260,6 +260,133 @@ There are several benefits to using gradient clipping in machine learning:
 
 --->Faster convergence: In some cases, gradient clipping can help accelerate the convergence of the optimization process by preventing large gradients that can cause the optimization algorithm to take large steps and overshoot the optimal solution. This can result in faster training times and improved efficiency.
 
+# 5.Learning Rate Scheduler
+**One solution to help the algorithm converge quickly to an optimum is to use a learning rate scheduler**. A learning rate scheduler adjusts the learning rate according to a pre-defined schedule during the training process.
+
+Usually, the learning rate is set to a higher value at the beginning of the training to allow faster convergence. As the training progresses, the learning rate is reduced to enable convergence to the optimum and thus leading to better performance. Reducing the learning rate over the training process is also known as annealing or decay.
+
+The amount of different learning rate schedulers can be overwhelming. An overview of how different pre-defined learning rate schedulers in PyTorch adjust the learning rate during training:
+
+~StepLR
+The StepLR reduces the learning rate by a multiplicative factor after every predefined number of training steps.
+```python
+from torch.optim.lr_scheduler import StepLR
+
+scheduler = StepLR(optimizer, 
+                   step_size = 4, #Period of learning rate decay
+                   gamma = 0.5) #Multiplicative factor of learning rate decay
+```
+
+~MultiStepLR
+The MultiStepLR — similarly to the StepLR — also reduces the learning rate by a multiplicative factor but after each pre-defined milestone.
+```python
+from torch.optim.lr_scheduler import MultiStepLR
+
+scheduler = MultiStepLR(optimizer, 
+                        milestones=[8, 24, 28], # List of epoch indices
+                        gamma =0.5) # Multiplicative factor of learning rate decay
+```
+
+~ConstantLR
+The ConstantLR reduces learning rate by a multiplicative factor until the number of training steps reaches a pre-defined milestone.
+```python
+from torch.optim.lr_scheduler import ConstantLR
+
+scheduler = ConstantLR(optimizer, 
+                       factor = 0.5, # The number we multiply learning rate until the milestone.
+                       total_iters = 8) # The number of steps that the scheduler decays the learning rate
+```
+As you might have already noticed, if your starting factor is smaller than 1, this learning rate scheduler increases the learning rate over the course of the training process instead of decreasing it.
+
+~LinearLR
+The LinearLR — similarly to the ConstantLR— also reduces the learning rate by a multiplicative factor at the beginning of the training. But it linearly increases the learning rate over a defined number of training steps until it reaches its originally set learning rate.
+```python
+from torch.optim.lr_scheduler import LinearLR
+
+scheduler = LinearLR(optimizer, 
+                     start_factor = 0.5, # The number we multiply learning rate in the first epoch
+                     total_iters = 8) # The number of iterations that multiplicative factor reaches to 1
+```
+If your starting factor is smaller than 1, this learning rate scheduler also increases the learning rate over the course of the training process instead of decreasing it.
+
+~ExponentialLR
+The ExponentialLR reduces learning rate by a multiplicative factor at every training step.
+```python
+from torch.optim.lr_scheduler import ExponentialLR
+
+scheduler = ExponentialLR(optimizer, 
+                          gamma = 0.5) # Multiplicative factor of learning rate decay.
+```
+
+~PolynomialLR
+The PolynomialLR reduces learning rate by using a polynomial function for a defined number of steps.
+```python
+from torch.optim.lr_scheduler import PolynomialLR
+
+scheduler = PolynomialLR(optimizer, 
+                         total_iters = 8, # The number of steps that the scheduler decays the learning rate.
+                         power = 1) # The power of the polynomial.
+```
+~CosineAnnealingLR
+The CosineAnnealingLR reduces learning rate by a cosine function.
+
+While you could technically schedule the learning rate adjustments to follow multiple periods, the idea is to decay the learning rate over half a period for the maximum number of iterations.
+```python
+from torch.optim.lr_scheduler import CosineAnnealingLR
+
+scheduler = CosineAnnealingLR(optimizer,
+                              T_max = 32, # Maximum number of iterations.
+                             eta_min = 1e-4) # Minimum learning rate.
+
+```
+
+~CosineAnnealingWarmRestartsLR
+The CosineAnnealingWarmRestarts is similar to the cosine annealing schedule. However, it allows you to restart the LR schedule with the initial LR at, e.g., each epoch.
+```python
+from torch.optim.lr_scheduler import CosineAnnealingWarmRestarts
+scheduler = CosineAnnealingWarmRestarts(optimizer, 
+                                        T_0 = 8,# Number of iterations for the first restart
+                                        T_mult = 1, # A factor increases TiTi​ after a restart
+                                        eta_min = 1e-4) # Minimum learning rate
+```
+This is called a warm restart and was introduced in 2017 [1]. Increasing the LR causes the model to diverge. However, this intentional divergence enables the model to escape local minima and find an even better global minimum.
+
+~CyclicLR
+The CyclicLR adjusted the learning rate according to a cyclical learning rate policy, which is based on the concept of warm restarts which we just discussed in the previous section. In PyTorch there are three built-in policies.
+```python
+from torch.optim.lr_scheduler import CyclicLR
+
+scheduler = CyclicLR(optimizer, 
+                     base_lr = 0.0001, # Initial learning rate which is the lower boundary in the cycle for each parameter group
+                     max_lr = 1e-3, # Upper learning rate boundaries in the cycle for each parameter group
+                     step_size_up = 4, # Number of training iterations in the increasing half of a cycle
+                     mode = "triangular")
+```
+
+~OneCycleLR
+The OneCycleLR reduces learning rate according to the 1cycle learning rate policy.
+In contrast to many other learning rate schedulers, the learning rate is not only decreased over the training process. Instead, the learning rate increases from an initial learning rate to some maximum learning rate and then decreases again.
+```python
+from torch.optim.lr_scheduler import OneCycleLR
+
+
+scheduler = OneCycleLR(optimizer, 
+                       max_lr = 1e-3, # Upper learning rate boundaries in the cycle for each parameter group
+                       steps_per_epoch = 8, # The number of steps per epoch to train for.
+                       epochs = 4, # The number of epochs to train for.
+                       anneal_strategy = 'cos') # Specifies the annealing strategy
+```
+~ReduceLROnPlateauLR
+The ReduceLROnPlateau reduces the learning rate by when the metric has stopped improving. As you can guess, this is difficult to visualize because the learning rate reduction timing depends on your model, data, and hyperparameters.
+
+~Custom Learning Rate Schedulers with Lambda Functions
+If the built-in learning rate schedulers don’t fit your needs, you have the possibility to define a scheduler with lambda functions. The lambda function is a function that returns a multiplicative factor based on the epoch value.
+The LambdaLR adjusts the learning rate by applying the multiplicative factor from the lambda function to the initial LR.
+```python
+lr_epoch[t] = lr_initial * lambda(epoch)
+```
+
+
 
 
 
