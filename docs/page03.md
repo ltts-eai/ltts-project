@@ -2,9 +2,9 @@
 
 ## Comparision study between the available different frameworks:
 
-![COM](docs/images/image_2023-04-13_210648358.png)
-![com](docs/images/image_2023-04-13_210734917.png)
-![alt](docs/images/image_2023-04-13_210808673.png)
+![COM](images/image_2023-04-13_210648358.png)
+![com](images/image_2023-04-13_210734917.png)
+![alt](images/image_2023-04-13_210808673.png)
 
 ## **Tensorflow:**
 TensorFlow is an open-source machine learning library developed by Google that provides a framework for building and training neural networks. It is widely used for a wide range of applications including image and speech recognition, natural language processing, recommendation systems, and many other tasks related to machine learning and deep learning.
