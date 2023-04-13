@@ -274,7 +274,7 @@ print('Test accuracy TFLITE model :', acc)
 #### Analysis of Results
 ![an](images/analysis.png)
 
-![an](images/Screenshot%202023-04-12%20144227.png)
+![an](images/Screenshot%202023-04-13%20140128.png)
 
 
 #### Pros and Cons of TensorFlowLite
