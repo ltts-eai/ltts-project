@@ -40,9 +40,9 @@ We can intuitively see that this poses significant exponential size reductions a
 
 #### Perks of Model Compression
 
-•	Smaller model sizes — Models can actually be stored into embedded devices (ESP32 has ~4Mb of Flash Memory)
-•	Faster Prediction Rates — This speeds up actionability, which provides viability for real-time decisions.
-•	Lowered power consumption — An often overlooked feature as environments that train models often come with a constant supply of power, embedded devices usually run on a battery thus this is the most important feature.
+ • Smaller model sizes — Models can actually be stored into embedded devices (ESP32 has ~4Mb of Flash Memory)
+ • Faster Prediction Rates — This speeds up actionability, which provides viability for real-time decisions.
+ • Lowered power consumption — An often overlooked feature as environments that train models often come with a constant supply of power, embedded devices usually run on a battery thus this is the most important feature.
 
 #### Hidden Perks of Model Compression
 
