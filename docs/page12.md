@@ -63,6 +63,7 @@ Each node in the model is evaluated by checking the inputs and outputs of the no
 
 The second step is to compare the output of the converted model with the output of the original model. This is done by comparing both outputs with the numpy.testing.assert_allclose function.
 This function will compare the two outputs and will raise an error if the two outputs are not equal, based on the rtol and atol parameters.
+*conversion of a pytorch model to onnx*
 ```
 import torch
 import torchvision
