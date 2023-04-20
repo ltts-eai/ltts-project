@@ -43,3 +43,23 @@ The instructions in this README assume you are using Visual Studio. It is recomm
 
 ![Frameworks](images/img2.PNG)
 
+## CONVERSION STEPS
+-> All frameworks have their own way to convert their models to ONNX. But there are some common steps that you need to follow.only saving the model weighs we ll not be able to convert to ONNX,the model architecture is required and really important to convert your model to onnx.
+-> Model weights are the weights of the different layers which are used to compute the output of the model. So, they are equally important to successfully convert the model.
+# input names and output names
+-> we will need to define the input names and the output names of our model. These metadata are used to describe the inputs and outputs of your model.
+ ONNX will trace the different layers of your model in order to create a graph of theses layers.
+-> While tracing the layers, ONNX will also need an input sample to understand how the model is working and what operators are used to compute the outputs.
+-> The selected sample will be the input of the first layer of the model and is also used to define the input shape of the model.
+# dynamic axes
+->Then, ONNX requires to know the dynamic axes of your model. Most of the time during the conversion, you will use a batch size of 1.
+->But if you want to have a model that can take a batch of N samples, you will need to define the dynamic axes of your model to accept a batch of N samples.
+# conversion evaluation
+Finally, we need to evaluate the converted model to ensure that it is a sustainable ONNX model and it is working as expected. There are two separate steps to evaluate the converted model.
+
+The first step is to use the ONNX’s API to check the model’s validity. This is done by calling the onnx.checker.check_model function. This will verify the model’s structure and confirm if the model has a valid ONNX scheme or not.
+
+Each node in the model is evaluated by checking the inputs and outputs of the node.
+
+The second step is to compare the output of the converted model with the output of the original model. This is done by comparing both outputs with the numpy.testing.assert_allclose function.
+This function will compare the two outputs and will raise an error if the two outputs are not equal, based on the rtol and atol parameters.
