@@ -73,18 +73,21 @@ import numpy as np
 !pip3 install onnx
 ```
 ![o/p](images/img11.png)
+
 ~*here we will load the pretrained ResNet18:*
 ```
 resnet = torchvision.models.resnet18(pretrained=True)
 ```
 
 ![o/p](images/img12.png)
+
 ~*We will download an example image from PyTorhc*
 ```
 import urllib
 url, filename = ("https://github.com/pytorch/hub/raw/master/images/dog.jpg", "dog.jpg") # Notebook Link will be in description
 urllib.request.urlretrieve(url, filename)
 ```
+![o/p](images/)
 
 ```
 from torchvision import transforms
