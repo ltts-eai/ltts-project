@@ -102,7 +102,7 @@ preprocess = transforms.Compose([
                                  transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
 ])
 ```
-![o/p](images/img15.png)
+
 ```
 input_tensor = preprocess(inp_image)
 inp_batch = input_tensor.unsqueeze(0)
@@ -112,6 +112,11 @@ device =torch.device("cuda" if torch.cuda.is_available() else "cpu")
 inp_batch.to(device)
 resnet.to(device)
 ```
+![o/p](images/img15.png)
+
+![o/p](images/)
+
+![o/p](images/img17.png)
 ```
 with torch.no_grad():
   output = resnet(inp_batch)
