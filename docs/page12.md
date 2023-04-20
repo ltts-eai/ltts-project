@@ -72,6 +72,7 @@ import numpy as np
 ```
 !pip3 install onnx
 ```
+![o/p](images/img11.PNG)
 ~*here we will load the pretrained ResNet18:*
 ```
 resnet = torchvision.models.resnet18(pretrained=True)
