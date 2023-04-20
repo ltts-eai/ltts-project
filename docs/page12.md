@@ -77,6 +77,8 @@ import numpy as np
 ```
 resnet = torchvision.models.resnet18(pretrained=True)
 ```
+
+![o/p](images/img12.png)
 ~*We will download an example image from PyTorhc*
 ```
 import urllib
