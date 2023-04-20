@@ -114,7 +114,7 @@ resnet.to(device)
 ```
 ![o/p](images/img15.png)
 
-![o/p](images/)
+![o/p](images/img16.png)
 
 ![o/p](images/img17.png)
 ```
