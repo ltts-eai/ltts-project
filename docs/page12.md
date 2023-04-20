@@ -63,3 +63,54 @@ Each node in the model is evaluated by checking the inputs and outputs of the no
 
 The second step is to compare the output of the converted model with the output of the original model. This is done by comparing both outputs with the numpy.testing.assert_allclose function.
 This function will compare the two outputs and will raise an error if the two outputs are not equal, based on the rtol and atol parameters.
+```
+import torch
+import torchvision
+from PIL import Image
+import numpy as np
+```
+```
+!pip3 install onnx
+```
+```
+resnet = torchvision.models.resnet18(pretrained=True)
+```
+```
+import urllib
+url, filename = ("https://github.com/pytorch/hub/raw/master/images/dog.jpg", "dog.jpg") # Notebook Link will be in description
+urllib.request.urlretrieve(url, filename)
+```
+```
+from torchvision import transforms
+inp_image = Image.open('/content/dog.jpg')
+```
+```
+preprocess = transforms.Compose([
+                                 transforms.Resize(256),
+                                 transforms.CenterCrop(224),
+                                 transforms.ToTensor(),
+                                 transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+])
+```
+```
+input_tensor = preprocess(inp_image)
+inp_batch = input_tensor.unsqueeze(0)
+```
+```
+device =torch.device("cuda" if torch.cuda.is_available() else "cpu")
+inp_batch.to(device)
+resnet.to(device)
+```
+```
+with torch.no_grad():
+  output = resnet(inp_batch)
+print(output[0])
+```
+```
+import torch.onnx
+torch.onnx.export(resnet,
+                  inp_batch,
+                  "resnet18.onnx",
+                  export_params=True,
+                  opset_version=10)
+```
