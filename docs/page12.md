@@ -76,11 +76,13 @@ import numpy as np
 ```
 resnet = torchvision.models.resnet18(pretrained=True)
 ```
+~*We will download an example image from PyTorhc*
 ```
 import urllib
 url, filename = ("https://github.com/pytorch/hub/raw/master/images/dog.jpg", "dog.jpg") # Notebook Link will be in description
 urllib.request.urlretrieve(url, filename)
 ```
+
 ```
 from torchvision import transforms
 inp_image = Image.open('/content/dog.jpg')
@@ -107,6 +109,7 @@ with torch.no_grad():
   output = resnet(inp_batch)
 print(output[0])
 ```
+~*Output of shape 1000, confidence scores for each of the imagenet classes*
 ```
 import torch.onnx
 torch.onnx.export(resnet,
