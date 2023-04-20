@@ -72,7 +72,7 @@ import numpy as np
 ```
 !pip3 install onnx
 ```
-![o/p](images/img11.PNG)
+![o/p](images/img11.png)
 ~*here we will load the pretrained ResNet18:*
 ```
 resnet = torchvision.models.resnet18(pretrained=True)
