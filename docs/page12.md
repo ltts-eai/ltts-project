@@ -87,12 +87,13 @@ import urllib
 url, filename = ("https://github.com/pytorch/hub/raw/master/images/dog.jpg", "dog.jpg") # Notebook Link will be in description
 urllib.request.urlretrieve(url, filename)
 ```
-![o/p](images/)
+![o/p](images/img13.png)
 
 ```
 from torchvision import transforms
 inp_image = Image.open('/content/dog.jpg')
 ```
+![o/p](images/img14.png)
 ```
 preprocess = transforms.Compose([
                                  transforms.Resize(256),
@@ -101,6 +102,7 @@ preprocess = transforms.Compose([
                                  transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
 ])
 ```
+![o/p](images/img15.png)
 ```
 input_tensor = preprocess(inp_image)
 inp_batch = input_tensor.unsqueeze(0)
