@@ -122,6 +122,12 @@ with torch.no_grad():
   output = resnet(inp_batch)
 print(output[0])
 ```
+
+![o/p](images/img18.png)
+
+
+![o/p](images/img19.png)
+
 ~*Output of shape 1000, confidence scores for each of the imagenet classes*
 ```
 import torch.onnx
