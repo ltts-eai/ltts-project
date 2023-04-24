@@ -54,7 +54,7 @@ Overall, TFLite makes it easy to deploy machine learning models on mobile and ed
 
 Keras is a high-level neural networks API that can run on top of TensorFlow, CNTK, or Theano. It is well-suited for building embedded AI applications due to its simplicity and ease of use.
 
-## **PyTorch**:
+## [**PyTorch**:](page11.md)
 
 PyTorch is a popular machine learning framework that is widely used for research and production applications, including embedded devices. It offers a dynamic computational graph and supports various neural network architectures.
 
