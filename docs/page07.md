@@ -6,8 +6,8 @@ Machine learning are of bigger size. So if they are running in a cloud, on a big
 
 2 Ways to perform quantization:
 
--Post Training Quantization
--Quantization Aware Training
+- Post Training Quantization
+- Quantization Aware Training
 
 In Post Training quantization, we take a trained tf model and use tf.lite convert. The main purpose of tflite is to convert the large modl into a smaller one so that we can deploy on edge devices. This is the quick approach but the accuracy might get suffered. so the better approach is Quantization Aware Training, In this case we take tf model and apply quantized model function(q.model=quantize_model(tf_model) on it. Then training the model again. then we are doing quantization on quantized model. Then training again for fewer epochs. And we get fine tuned quantized model and then convert it again using tflite. this approach is little more work but it gives you more accuracy.
 

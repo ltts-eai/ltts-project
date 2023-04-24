@@ -7,18 +7,20 @@
 ![alt](images/image_2023-04-13_210808673.png)
 
 ## **Tensorflow:**
+
 TensorFlow is an open-source machine learning library developed by Google that provides a framework for building and training neural networks. It is widely used for a wide range of applications including image and speech recognition, natural language processing, recommendation systems, and many other tasks related to machine learning and deep learning.
 With TensorFlow, you can:
-1.	Build and train neural networks: TensorFlow provides a high-level API for defining, training, and evaluating neural networks. You can create various types of neural network architectures, such as convolutional neural networks (CNNs) for image recognition, recurrent neural networks (RNNs) for sequence data, and transformers for natural language processing.
-2.	Perform data preprocessing: TensorFlow has built-in functions for common data preprocessing tasks such as image and text data augmentation, normalization, and feature scaling. These capabilities help you prepare your data for machine learning tasks.
-3.	Deploy machine learning models: TensorFlow allows you to deploy trained models to various platforms, including cloud servers, mobile devices, and embedded systems. This enables you to use your machine learning models in real-world applications.
-4.	Perform transfer learning: TensorFlow supports transfer learning, which allows you to use pre-trained models as a starting point for training your own models. This can significantly speed up the training process and improve model performance, especially when you have limited data.
-5.	Optimize performance: TensorFlow provides various optimization techniques, such as graph optimizations, model quantization, and hardware accelerations, to optimize the performance of your machine learning models for inference on different devices.
-6.	Experiment with different machine learning techniques: TensorFlow offers a flexible and extensible platform for experimenting with different machine learning techniques and algorithms. You can implement and compare various approaches to see which one works best for your specific use case.
+
+1. Build and train neural networks: TensorFlow provides a high-level API for defining, training, and evaluating neural networks. You can create various types of neural network architectures, such as convolutional neural networks (CNNs) for image recognition, recurrent neural networks (RNNs) for sequence data, and transformers for natural language processing.
+2. Perform data preprocessing: TensorFlow has built-in functions for common data preprocessing tasks such as image and text data augmentation, normalization, and feature scaling. These capabilities help you prepare your data for machine learning tasks.
+3. Deploy machine learning models: TensorFlow allows you to deploy trained models to various platforms, including cloud servers, mobile devices, and embedded systems. This enables you to use your machine learning models in real-world applications.
+4. Perform transfer learning: TensorFlow supports transfer learning, which allows you to use pre-trained models as a starting point for training your own models. This can significantly speed up the training process and improve model performance, especially when you have limited data.
+5. Optimize performance: TensorFlow provides various optimization techniques, such as graph optimizations, model quantization, and hardware accelerations, to optimize the performance of your machine learning models for inference on different devices.
+6. Experiment with different machine learning techniques: TensorFlow offers a flexible and extensible platform for experimenting with different machine learning techniques and algorithms. You can implement and compare various approaches to see which one works best for your specific use case.
 
 ## **TensorFlow Lite**:
 
-TensorFlow Lite is a lightweight version of the TensorFlow framework that is designed specifically for mobile and embedded devices. It is widely used in various applications such as image recognition, speech recognition, and natural language processing. 
+TensorFlow Lite is a lightweight version of the TensorFlow framework that is designed specifically for mobile and embedded devices. It is widely used in various applications such as image recognition, speech recognition, and natural language processing.
 
 It is used for deploying machine learning models on mobile and edge devices. It is a mobile-optimized version of TensorFlow, the popular open-source machine learning framework. TFLite is designed to run models with low latency and a small memory footprint, which makes it ideal for mobile and embedded devices.
 
@@ -46,7 +48,7 @@ These optimizations can be applied individually or in combination to improve the
 
 Overall, TFLite makes it easy to deploy machine learning models on mobile and edge devices, allowing developers to create powerful and intelligent applications for a wide range of use cases.
 
-[steps](page4.md)
+( [steps](page04.md) on how to intrepret a tf model )
 
 ## **Keras**:
 
@@ -60,12 +62,13 @@ PyTorch is a popular machine learning framework that is widely used for research
 
 Caffe is an open-source deep learning framework developed by the Berkeley Vision and Learning Center (BVLC) at the University of California, Berkeley. It is specifically designed for efficient and fast training and inference of deep neural networks, with a focus on convolutional neural networks (CNNs) commonly used for image recognition tasks.
 With Caffe, you can:
-1.	Train and deploy deep neural networks: Caffe provides a simple and expressive domain-specific language (DSL) for defining neural network architectures in a concise and readable format. It supports a wide range of layer types, including convolutional layers, pooling layers, fully connected layers, and more, making it suitable for various deep learning tasks such as image classification, object detection, and segmentation.
-2.	Optimize for efficiency: Caffe is optimized for speed and efficiency, making it well-suited for training and inference on both CPUs and GPUs. It includes optimizations such as memory reuse, parallelism, and efficient computation to accelerate the training and inference process, making it a popular choice for real-time and resource-constrained applications.
-3.	Utilize pre-trained models: Caffe supports pre-trained models, allowing you to leverage existing models that have been trained on large datasets for tasks such as image classification or object detection. This can save a significant amount of time and computational resources compared to training models from scratch.
-4.	Fine-tune models: Caffe provides the ability to fine-tune pre-trained models on your own dataset, which is useful for transfer learning, where you can leverage a pre-trained model's knowledge on a different task and adapt it to your specific task with limited data.
-5.	Experiment with model architectures: Caffe's flexible DSL makes it easy to experiment with different model architectures and hyperparameters. You can quickly iterate and test different model configurations to find the best performing model for your specific task.
-6.	Deploy models to production: Caffe provides tools for converting trained models into a format suitable for deployment in production environments, such as converting models to optimized representations for inference on embedded devices or integrating models into other software systems.
+
+1. Train and deploy deep neural networks: Caffe provides a simple and expressive domain-specific language (DSL) for defining neural network architectures in a concise and readable format. It supports a wide range of layer types, including convolutional layers, pooling layers, fully connected layers, and more, making it suitable for various deep learning tasks such as image classification, object detection, and segmentation.
+2. Optimize for efficiency: Caffe is optimized for speed and efficiency, making it well-suited for training and inference on both CPUs and GPUs. It includes optimizations such as memory reuse, parallelism, and efficient computation to accelerate the training and inference process, making it a popular choice for real-time and resource-constrained applications.
+3. Utilize pre-trained models: Caffe supports pre-trained models, allowing you to leverage existing models that have been trained on large datasets for tasks such as image classification or object detection. This can save a significant amount of time and computational resources compared to training models from scratch.
+4. Fine-tune models: Caffe provides the ability to fine-tune pre-trained models on your own dataset, which is useful for transfer learning, where you can leverage a pre-trained model's knowledge on a different task and adapt it to your specific task with limited data.
+5. Experiment with model architectures: Caffe's flexible DSL makes it easy to experiment with different model architectures and hyperparameters. You can quickly iterate and test different model configurations to find the best performing model for your specific task.
+6. Deploy models to production: Caffe provides tools for converting trained models into a format suitable for deployment in production environments, such as converting models to optimized representations for inference on embedded devices or integrating models into other software systems.
 
 ## **Caffe2**:
 
@@ -118,5 +121,3 @@ With ONNX, you can:
 5.**Model visualization and debugging:** ONNX provides visualization tools that allow you to inspect and debug the structure of deep learning models, helping to understand the internal workings of complex models and diagnose issues during model development and deployment.
 
 6.**Ecosystem of supported deep learning frameworks:** ONNX has a growing ecosystem of deep learning frameworks that support the format, including popular frameworks such as TensorFlow, PyTorch, Caffe2, and many more. This means that you can use ONNX to exchange models between these frameworks, opening up possibilities for model reuse and interoperability.
-
-
