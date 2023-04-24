@@ -4,19 +4,19 @@ Optimization is a critical component of machine learning as it enables algorithm
 
 Optimization techniques for embedded devices are similar to those used in traditional machine learning, but they are specifically tailored to the limitations and requirements of embedded systems. Some common optimization techniques used for embedded devices include:
 
-## [Quantization:](page7.md)
+## [Quantization:](page07.md)
 
 This technique involves reducing the precision of model weights and activations, which can greatly reduce the amount of memory required to store a model.
 
-## [Pruning:](page6.md)
+## [Pruning:](page06.md)
 
 This technique involves removing unnecessary connections or neurons from a model, which can reduce its size and improve its speed.
 
-## [Compression:](page9.md)
+## [Compression:](page09.md)
 
 This technique involves using algorithms to compress model weights and activations, which can reduce the amount of memory required to store a model without significantly impacting its performance.
 
-## [Knowledge Distillation:](page8.md)
+## [Knowledge Distillation:](page08.md)
 
 This technique involves training a smaller, simpler model to mimic the output of a larger, more complex model, which can reduce the size and complexity of a model without sacrificing its accuracy.
 
