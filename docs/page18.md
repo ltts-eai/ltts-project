@@ -106,7 +106,7 @@ print('which is about %d%% of the float model size.'\
  ```
 
 
-9.#save your model in the SavedModel format
+### save your model in saved model format
 ```
 export_dir = 'saved_model/1'
 tf.saved_model.save(model, export_dir)
