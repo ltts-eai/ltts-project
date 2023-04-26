@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://example.com/page18/" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Page18 - LTTS - EAI</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Page18";
+        var mkdocs_page_input_path = "page18.md";
+        var mkdocs_page_url = "/page18/";
+      </script>
+    
+    <script src="../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> LTTS - EAI
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home page</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../TENSORFLOW/">TENSORFLOW</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../page01/">Introduction to AI</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../page02/">Guideline to build framework</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../page03/">EAI frameworks</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../page04/">Interpreting TensorFlow lite framework</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../page05/">Optimization techniques</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../page06/">Pruning</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../page07/">Quantization</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../page08/">Knowledge Distillation</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../page09/">Compression</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../page10/">Hardware Acceleration</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../page11/">PyTorch</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../page12/">ONNX</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../page14/">Optimization Techniques for PyTorch Framework</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../page15/">Model Compression with TensorFlow Lite: A Look into Reducing Model Size</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../page16/">Kernal fusion</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../page17/">Embedded hardware</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="./">Page18</a>
+    <ul class="current">
+    </ul>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">LTTS - EAI</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" alt="Docs"></a> &raquo;</li>
+      <li>Page18</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <p>In this session, we will examine several optimisation techniques, such as weight pruning, by training a tf.keras model from scratch for the MNIST dataset. This model will serve as the baseline for conversion to a tflite model.</p>
+<p>The major goal of this notebook is to comprehend tflite and other model optimisations, hence the modelling portion will be kept straightforward.</p>
+<h3 id="1importing-necessary-libraries">1.IMPORTING NECESSARY LIBRARIES</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>import os
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>import tempfile
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>import numpy as np
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>import tensorflow as tf
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>from tensorflow import keras
+</code></pre></div>
+<ol>
+<li>LOAD MNIST DATASET</li>
+</ol>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>mnist = tf.keras.datasets.mnist
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a># the data, split between train and test sets
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>(train_images, train_labels), (test_images, test_labels) = mnist.load_data()
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a># Normalize the input image so that each pixel value is between 0 and 1.
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>train_images = train_images / 255.0
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>test_images = test_images / 255.0
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a># Define the model architecture.
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>def baseline_model():
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>    model = tf.keras.Sequential([
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>      tf.keras.layers.InputLayer(input_shape=(28, 28)),
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>      tf.keras.layers.Reshape(target_shape=(28, 28, 1)),
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>      tf.keras.layers.Conv2D(filters=12,kernel_size=(3, 3), activation=&quot;relu&quot;),
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>      tf.keras.layers.MaxPooling2D(pool_size=(2, 2)),
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>      tf.keras.layers.Flatten(),
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>      tf.keras.layers.Dense(10)
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>    ])
+</code></pre></div></p>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>    # Train the digit classification model
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>    model.compile(optimizer=&#39;adam&#39;,
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>                 loss=tf.keras.losses.SparseCategoricalCrossentropy(from_logits=True),
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>                  metrics=[&#39;accuracy&#39;])
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>    return model
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>model = baseline_model()
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a># train the model for 4 epoch
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>model.fit(
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>  train_images,
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>  train_labels,
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>  epochs=4,
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>  validation_split=0.1,
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>)
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>_, baseline_model_accuracy = model.evaluate(
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>    test_images, test_labels, verbose=0)
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>print(&#39;Baseline test accuracy:&#39;, baseline_model_accuracy)
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>_, keras_file = tempfile.mkstemp(&#39;.h5&#39;)
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>tf.keras.models.save_model(model, keras_file, include_optimizer=False)
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>print(&#39;Saved baseline model to:&#39;, keras_file)
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>import os
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>import tensorflow as tf
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>from tensorflow import keras
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>import numpy as np
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>import matplotlib.pyplot as plt
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>from tensorflow.keras.layers import Flatten
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>from tensorflow.keras.layers import Dense
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>from tensorflow.keras.losses import SparseCategoricalCrossentropy
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>from sklearn.metrics import accuracy_score
+<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>import time
+</code></pre></div></p>
+<h3 id="convertion-process">CONVERTION PROCESS</h3>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>6.######### Convert Keras model to TF Lite format.(32 bit)
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>converter = tf.lite.TFLiteConverter.from_keras_model(model)
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>tflite_float_model = converter.convert()
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a># Show model size in KBs.
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>float_model_size = len(tflite_float_model) / 1024
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>print(&#39;Float model size = %dKBs.&#39; % float_model_size)#base-&gt;tflite=437
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>7.#Re-convert the model to TF Lite using quantization.(32-&gt;int 8)
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>converter.optimizations = [tf.lite.Optimize.DEFAULT]
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>tflite_quantized_model = converter.convert()
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a># Show model size in KBs.
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>quantized_model_size = len(tflite_quantized_model) / 1024
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>print(&#39;Quantized model size = %dKBs,&#39; % quantized_model_size)
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>print(&#39;which is about %d%% of the float model size.&#39;\
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>      % (quantized_model_size * 100 / float_model_size))
+<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>
+<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a> ```
+<a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>
+<a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a>
+<a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a>### save your model in saved model format
+</code></pre></div>
+export_dir = 'saved_model/1'
+tf.saved_model.save(model, export_dir)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a># Convert the model
+</code></pre></div>
+converter = tf.lite.TFLiteConverter.from_saved_model(export_dir) # path to the SavedModel directory
+tflite_model = converter.convert()
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a># Save the model.
+</code></pre></div>
+with open('model.tflite', 'wb') as f:
+  f.write(tflite_model)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a># Save the keras model after compiling
+</code></pre></div>
+model.save('model_keras.h5')
+model_keras= tf.keras.models.load_model('model_keras.h5')
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a># Converting a tf.Keras model to a TensorFlow Lite model.
+</code></pre></div>
+converter = tf.lite.TFLiteConverter.from_keras_model(model_keras)
+tflite_model = converter.convert()
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a># Save the model.
+</code></pre></div>
+with open('model.tflite', 'wb') as f:
+  f.write(tflite_model)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>
+</code></pre></div>
+!pip install -q tensorflow-model-optimization
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>
+</code></pre></div>
+import tensorflow_model_optimization as tfmot</p>
+<p>prune_low_magnitude = tfmot.sparsity.keras.prune_low_magnitude
+```</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../page17/" class="btn btn-neutral float-left" title="Embedded hardware"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../page17/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+  </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme_extra.js" defer></script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://example.com/page07/" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Quantization - LTTS - EAI</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Quantization";
+        var mkdocs_page_input_path = "page07.md";
+        var mkdocs_page_url = "/page07/";
+      </script>
+    
+    <script src="../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> LTTS - EAI
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home page</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../TENSORFLOW/">TENSORFLOW</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../page01/">Introduction to AI</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../page02/">Guideline to build framework</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../page03/">EAI frameworks</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../page04/">Interpreting TensorFlow lite framework</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../page05/">Optimization techniques</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../page06/">Pruning</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="./">Quantization</a>
+    <ul class="current">
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../page08/">Knowledge Distillation</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../page09/">Compression</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../page10/">Hardware Acceleration</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../page11/">PyTorch</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../page12/">ONNX</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../page14/">Optimization Techniques for PyTorch Framework</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../page15/">Model Compression with TensorFlow Lite: A Look into Reducing Model Size</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../page16/">Kernal fusion</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../page17/">Embedded hardware</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../page18/">Page18</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">LTTS - EAI</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" alt="Docs"></a> &raquo;</li>
+      <li>Quantization</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="quantization">Quantization</h1>
+<p>Why quantization?</p>
+<p>Machine learning are of bigger size. So if they are running in a cloud, on a big machine is not a problem. But if you want to deploy them on edge devices. We have to optimize the model and reduce the model size. when we reduce the model size it fits the requirement of the edge devices because it might have only few megabytes of memory. so it meets the requirement of limited resources and also the inference is much faster.</p>
+<p>2 Ways to perform quantization:</p>
+<ul>
+<li>Post Training Quantization</li>
+<li>Quantization Aware Training</li>
+</ul>
+<p>In Post Training quantization, we take a trained tf model and use tf.lite convert. The main purpose of tflite is to convert the large modl into a smaller one so that we can deploy on edge devices. This is the quick approach but the accuracy might get suffered. so the better approach is Quantization Aware Training, In this case we take tf model and apply quantized model function(q.model=quantize_model(tf_model) on it. Then training the model again. then we are doing quantization on quantized model. Then training again for fewer epochs. And we get fine tuned quantized model and then convert it again using tflite. this approach is little more work but it gives you more accuracy.</p>
+<p>Quantization, which reduces the number of bits needed to represent information, is particularly important because it allows for the largest effective reduction of the weights and activations to improve power efficiency and performance while maintaining accuracy. It also helps enable use cases that run multiple AI models concurrently, which is relevant for industries such as mobile, XR, automotive, and more.</p>
+<p>For training, the floating-point formats FP16 and FP32 are commonly used as they have high enough accuracy, and no hyper-parameters. They mostly work out of the box, making them easy to use.</p>
+<p>Going down in the number of bits improves the efficiency of networks greatly, but the ease-of-use advantage disappears. For formats like INT8 and FP8, you have to set hyper-parameters for the representable range of the distributions. To get your original network accuracy back, you also have to spend some extra time quantizing these networks. Either in some simple quantization steps called post-training-quantitation (PTQ), or by training the network in a quantized way all together, called quantization-aware-training (QAT).</p>
+<p>The hardware implementation of the FP8 format is somewhere between 50% to 180% less efficient than INT8 in terms of chip area and energy usage. This is because of the additional logic needed in the accumulation of FP formats versus integer formats. This seems like a broad range, but the actual efficiency depends on many hardware design choices that vary greatly.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../page06/" class="btn btn-neutral float-left" title="Pruning"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../page08/" class="btn btn-neutral float-right" title="Knowledge Distillation">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../page06/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../page08/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme_extra.js" defer></script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
