@@ -54,24 +54,24 @@ It is also well-suited for robotics applications, and can be used to run SLAM al
 
 ## HARDWARE SPECIFICATION:
 
-**CPU:** Broadcom BCM2711, quad-core Cortex-A72 (ARM v8) 64-bit SoC @ 1.5GHz
-**RAM:** 2GB, 4GB, or 8GB LPDDR4-3200 SDRAM (depending on model)
-**Connectivity:**
-*   2.4 GHz and 5.0 GHz IEEE 802.11b/g/n/ac wireless LAN
-*   Gigabit Ethernet
-*	Bluetooth 5.0
-*	BLE (Bluetooth Low Energy)
-*	2 USB 3.0 ports and 2 USB 2.0 ports
-*	Video and Sound:
-*	2 micro-HDMI ports (up to 4Kp60 supported)
-*	2-lane MIPI DSI display port
-*	2-lane MIPI CSI camera port
-*	4-pole stereo audio and composite video port
-**Multimedia:** H.265 (4Kp60 decode); H.264 (1080p60 decode, 1080p30 encode); OpenGL ES, 3.0 graphics
-**Storage:** MicroSD card slot for loading operating system and data storage
-**GPIO:** Standard 40-pin GPIO header, fully backwards-compatible with previous Raspberry Pi boards
-**Power:** 5V DC via USB-C connector (minimum 3A), or GPIO header (minimum 3A)
-**Dimensions:** 88 x 58 x 19.5 mm, 46 g
+*    **CPU:** Broadcom BCM2711, quad-core Cortex-A72 (ARM v8) 64-bit SoC @ 1.5GHz
+*    **RAM:** 2GB, 4GB, or 8GB LPDDR4-3200 SDRAM (depending on model)
+*    **Connectivity:**
+    *    2.4 GHz and 5.0 GHz IEEE 802.11b/g/n/ac wireless LAN
+    *    Gigabit Ethernet
+    *	 Bluetooth 5.0
+    *	 BLE (Bluetooth Low Energy)
+    *	 2 USB 3.0 ports and 2 USB 2.0 ports
+    *	 Video and Sound:
+    *	 2 micro-HDMI ports (up to 4Kp60 supported)
+    *	 2-lane MIPI DSI display port
+    *	 2-lane MIPI CSI camera port
+    *	 4-pole stereo audio and composite video port
+*    **Multimedia:** H.265 (4Kp60 decode); H.264 (1080p60 decode, 1080p30 encode); OpenGL ES, 3.0 graphics
+*    **Storage:** MicroSD card slot for loading operating system and data storage
+*    **GPIO:** Standard 40-pin GPIO header, fully backwards-compatible with previous Raspberry Pi boards
+*    **Power:** 5V DC via USB-C connector (minimum 3A), or GPIO header (minimum 3A)
+*    **Dimensions:** 88 x 58 x 19.5 mm, 46 g
 
 The Raspberry Pi 4B is a powerful and versatile single-board computer that is suitable for a wide range of applications, from hobbyist projects to commercial products. Its high processing power, built-in connectivity options, and support for a wide range of software
 
@@ -105,19 +105,19 @@ The RAM on the Raspberry Pi 4B is shared between the CPU and the GPU, which allo
 
 ## HARDWARE SPECIFICATION:
 
-Microcontroller: ATmega328P
-Operating Voltage: 5V
-Input Voltage (recommended): 7-12V
-Input Voltage (limit): 6-20V
-Digital I/O Pins: 14 (of which 6 provide PWM output)
-PWM Digital I/O Pins: 6
-Analog Input Pins: 6
-DC Current per I/O Pin: 20 mA
-DC Current for 3.3V Pin: 50 mA
-Flash Memory: 32 KB (ATmega328P)
-SRAM: 2 KB (ATmega328P)
-EEPROM: 1 KB (ATmega328P)
-Clock Speed: 16 MHz
+*   Microcontroller: ATmega328P
+*   Operating Voltage: 5V
+*   Input Voltage (recommended): 7-12V
+*   Input Voltage (limit): 6-20V
+*   Digital I/O Pins: 14 (of which 6 provide PWM output)
+*   PWM Digital I/O Pins: 6
+*   Analog Input Pins: 6
+*   DC Current per I/O Pin: 20 mA
+*   DC Current for 3.3V Pin: 50 mA
+*   Flash Memory: 32 KB (ATmega328P)
+*   SRAM: 2 KB (ATmega328P)
+*   EEPROM: 1 KB (ATmega328P)
+*   Clock Speed: 16 MHz
 
 The Arduino Uno board also includes a USB interface for programming and power, a power jack, an ICSP header, and a reset button.
 
@@ -146,19 +146,19 @@ The flash memory is used to store the program code that is uploaded to the board
 
 ## HARDWARE SPECIFICATION:
 
-Microcontroller: ATmega328P
-Operating Voltage: 5V or 3.3V (depending on model)
-Input Voltage (recommended): 7-12V (VIN) or 5V (USB)
-Input Voltage (limit): 6-20V (VIN) or 5V (USB)
-Digital I/O Pins: 14 (of which 6 provide PWM output)
-PWM Digital I/O Pins: 6
-Analog Input Pins: 8
-DC Current per I/O Pin: 20 mA
-DC Current for 3.3V Pin: 50 mA
-Flash Memory: 32 KB (ATmega328P)
-SRAM: 2 KB (ATmega328P)
-EEPROM: 1 KB (ATmega328P)
-Clock Speed: 16 MHz
+*   Microcontroller: ATmega328P
+*   Operating Voltage: 5V or 3.3V (depending on model)
+*   Input Voltage (recommended): 7-12V (VIN) or 5V (USB)
+*   Input Voltage (limit): 6-20V (VIN) or 5V (USB)
+*   Digital I/O Pins: 14 (of which 6 provide PWM output)
+*   PWM Digital I/O Pins: 6
+*   Analog Input Pins: 8
+*   DC Current per I/O Pin: 20 mA
+*   DC Current for 3.3V Pin: 50 mA
+*   Flash Memory: 32 KB (ATmega328P)
+*   SRAM: 2 KB (ATmega328P)
+*   EEPROM: 1 KB (ATmega328P)
+*   Clock Speed: 16 MHz
 
 ## PROCESSING POWER:
 
