@@ -280,14 +280,15 @@ print('Test accuracy TFLITE model :', acc)
 #### Pros and Cons of TensorFlowLite
 
 **Pros:**
-*   Easier to implement model compression
-*   Minimal effect on accuracy (Depending on model)
-*   Major speed up in prediction
+*    Easier to implement model compression
+*    Minimal effect on accuracy (Depending on model)
+*    Major speed up in prediction
+
 **Cons:**
-*   Requires the latest Tensorflow version 2
-*   Relatively new , Many operations (ops) are not supported yet such as SELU
-*   Requires converting model which can fail
-*   Possible complications when running inference compared to our good friend.predict() as it is more convoluted.
+*    Requires the latest Tensorflow version 2
+*    Relatively new , Many operations (ops) are not supported yet such as SELU
+*    Requires converting model which can fail
+*    Possible complications when running inference compared to our good friend.predict() as it is more convoluted.
 
 
 #### Conclusion
