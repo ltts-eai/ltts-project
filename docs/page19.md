@@ -36,3 +36,44 @@ def baseline_model():
       tf.keras.layers.Dense(10)
     ])
 ```
+# Train the digit classification model
+```
+    model.compile(optimizer='adam',
+                 loss=tf.keras.losses.SparseCategoricalCrossentropy(from_logits=True),
+                  metrics=['accuracy'])
+    return model
+```
+```
+3.model = baseline_model()
+```
+# train the model for 4 epoch
+```
+model.fit(
+  train_images,
+  train_labels,
+  epochs=4,
+  validation_split=0.1,
+)
+```
+```
+4._, baseline_model_accuracy = model.evaluate(
+    test_images, test_labels, verbose=0)
+
+print('Baseline test accuracy:', baseline_model_accuracy)
+
+_, keras_file = tempfile.mkstemp('.h5')
+tf.keras.models.save_model(model, keras_file, include_optimizer=False)
+print('Saved baseline model to:', keras_file)
+```
+```
+5.import os
+import tensorflow as tf
+from tensorflow import keras
+import numpy as np
+import matplotlib.pyplot as plt
+from tensorflow.keras.layers import Flatten
+from tensorflow.keras.layers import Dense
+from tensorflow.keras.losses import SparseCategoricalCrossentropy
+from sklearn.metrics import accuracy_score
+import time
+```
