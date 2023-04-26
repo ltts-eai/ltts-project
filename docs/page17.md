@@ -6,14 +6,14 @@
 
 The NVIDIA Jetson Nano is a small, powerful computer designed for embedded applications and AI projects. 
 
-**CPU:** Quad-core ARM Cortex-A57 CPU @ 1.43 GHz
-**GPU:** 128-core NVIDIA Maxwell GPU
-**Memory:** 4 GB 64-bit LPDDR4 RAM @ 1600 MHz
-**Storage:** MicroSD card slot for storage expansion
-**Video:** 4K @ 30 fps (H.264/H.265) / 4K @ 60 fps (VP9)
-**Interfaces:** Gigabit Ethernet, HDMI 2.0, USB 3.0, USB 2.0, Micro-USB (power only)
-**GPIO:** 40-pin header with GPIO, I2C, I2S, SPI, UART interfaces
-**Dimensions:** 69.6 mm x 45 mm
+*   **CPU:** Quad-core ARM Cortex-A57 CPU @ 1.43 GHz
+*   **GPU:** 128-core NVIDIA Maxwell GPU
+*   **Memory:** 4 GB 64-bit LPDDR4 RAM @ 1600 MHz
+*   **Storage:** MicroSD card slot for storage expansion
+*   **Video:** 4K @ 30 fps (H.264/H.265) / 4K @ 60 fps (VP9)
+*   **Interfaces:** Gigabit Ethernet, HDMI 2.0, USB 3.0, USB 2.0, Micro-USB (power only)
+*   **GPIO:** 40-pin header with GPIO, I2C, I2S, SPI, UART interfaces
+*   **Dimensions:** 69.6 mm x 45 mm
 
 Overall, the Jetson Nano provides a powerful and efficient platform for running AI models and processing data in real-time, while remaining compact and affordable.
 
