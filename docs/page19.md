@@ -238,3 +238,44 @@ print("Size of gzipped pruned Keras model: %.2f bytes" % (get_gzipped_model_size
 print("Size of gzipped baseline Keras model: %.2f bytes" % (get_gzipped_model_size(keras_file)))
 print("Size of gzipped pruned and quantized TFlite model: %.2f bytes" % (get_gzipped_model_size(quantized_and_pruned_tflite_file)))
 ```
+
+17.#helper function to evaluate tflite model on the test dataset
+```
+def eval_model(interpreter):
+  input_index = interpreter.get_input_details()[0]["index"]
+  output_index = interpreter.get_output_details()[0]["index"]
+
+  # Run predictions on every image in the "test" dataset.
+  prediction_digits = []
+  for i, test_image in enumerate(test_images):
+    if i % 1000 == 0:
+      print('Evaluated on {n} results so far.'.format(n=i))
+    # Pre-processing: add batch dimension and convert to float32 to match with
+    # the model's input data format.
+    test_image = np.expand_dims(test_image, axis=0).astype(np.float32)
+    interpreter.set_tensor(input_index, test_image)
+
+    # Run inference.
+    interpreter.invoke()
+
+    # Post-processing: remove batch dimension and find the digit with highest
+    # probability.
+    output = interpreter.tensor(output_index)
+    digit = np.argmax(output()[0])
+    prediction_digits.append(digit)
+    output_details = interpreter.get_output_details()
+  print(output_details)  
+  print('\n')
+  # Compare prediction results with ground truth labels to calculate accuracy.
+  prediction_digits = np.array(prediction_digits)
+  accuracy = (prediction_digits == test_labels).mean()
+  return accuracy
+18.interpreter = tf.lite.Interpreter(model_content=quantized_and_pruned_tflite_model)
+interpreter.allocate_tensors()
+
+test_accuracy = eval_model(interpreter)
+
+# print('Baseline test accuracy:', baseline_model_accuracy)
+print('Pruned TF test accuracy:', model_for_pruning_accuracy)
+print('Pruned and quantized TFLite test_accuracy:', test_accuracy)
+```
