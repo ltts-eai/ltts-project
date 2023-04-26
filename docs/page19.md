@@ -181,3 +181,60 @@ model_for_pruning.fit(train_images, train_labels,
                   batch_size=batch_size, epochs=epochs, validation_split=validation_split,
                   callbacks=callbacks)
 ```
+12.# For this dataset, there is minimal loss in test accuracy after pruning, compared to the baseline model .
+
+_, model_for_pruning_accuracy = model_for_pruning.evaluate(
+   test_images, test_labels, verbose=0)
+
+print('Baseline test accuracy:', baseline_model_accuracy) 
+print('Pruned test accuracy:', model_for_pruning_accuracy)
+```
+12.model_for_export = tfmot.sparsity.keras.strip_pruning(model_for_pruning)
+
+_, pruned_keras_file = tempfile.mkstemp('.h5')
+tf.keras.models.save_model(model_for_export, pruned_keras_file, include_optimizer=False)
+print('Saved pruned Keras model to:', pruned_keras_file)
+
+13.converter = tf.lite.TFLiteConverter.from_keras_model(model_for_export)
+pruned_tflite_model = converter.convert()
+
+_, pruned_tflite_file = tempfile.mkstemp('.tflite')
+
+with open(pruned_tflite_file, 'wb') as f:
+  f.write(pruned_tflite_model)
+
+print('Saved pruned TFLite model to:', pruned_tflite_file)
+
+14.# standard compression
+def get_gzipped_model_size(file):
+  # Returns size of gzipped model, in bytes.
+    import os
+    import zipfile
+
+    _, zipped_file = tempfile.mkstemp('.zip')
+    with zipfile.ZipFile(zipped_file, 'w', compression=zipfile.ZIP_DEFLATED) as f:
+      f.write(file)
+
+    return os.path.getsize(zipped_file)
+
+15.# from the ouptut we can see that the model size is reduced to 3x from baseline model
+
+print("Size of gzipped baseline Keras model: %.2f bytes" % (get_gzipped_model_size(keras_file)))
+print("Size of gzipped pruned Keras model: %.2f bytes" % (get_gzipped_model_size(pruned_keras_file)))
+print("Size of gzipped pruned TFlite model: %.2f bytes" % (get_gzipped_model_size(pruned_tflite_file)))
+```
+```
+16.converter = tf.lite.TFLiteConverter.from_keras_model(model_for_export)
+converter.optimizations = [tf.lite.Optimize.DEFAULT]
+quantized_and_pruned_tflite_model = converter.convert()
+
+_, quantized_and_pruned_tflite_file = tempfile.mkstemp('.tflite')
+
+with open(quantized_and_pruned_tflite_file, 'wb') as f:
+  f.write(quantized_and_pruned_tflite_model)
+
+print('Saved quantized and pruned TFLite model to:', quantized_and_pruned_tflite_file)
+print("Size of gzipped pruned Keras model: %.2f bytes" % (get_gzipped_model_size(pruned_keras_file)))
+print("Size of gzipped baseline Keras model: %.2f bytes" % (get_gzipped_model_size(keras_file)))
+print("Size of gzipped pruned and quantized TFlite model: %.2f bytes" % (get_gzipped_model_size(quantized_and_pruned_tflite_file)))
+```
