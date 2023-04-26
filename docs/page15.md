@@ -18,10 +18,10 @@ To overly simplify for the gist of understanding machine learning models, a neur
 #### TensorFlow Lite to the rescue!
 TensorFlow Lite deals with the Quantisation and prunning and does a great job in abstracting the hard parts of model compression.
 TensorFlow Lite covers:
-1. Post-Training Quantization— Reduce Float16— Hybrid Quantization— Integer Quantization
-2. During-Training Quantization
-3. Post-Training Pruning
-4. Post-Training Clustering
+*   Post-Training Quantization— Reduce Float16— Hybrid Quantization— Integer Quantization
+*   During-Training Quantization
+*   Post-Training Pruning
+*   Post-Training Clustering
 The most common and easiest to implement method would be post-training quantization. The usage of quantization is the limiting of the bits of precision of our model parameters as such this reduces the amount of data that is needed to be stored.
 
 #### Quantisation
@@ -40,9 +40,9 @@ We can intuitively see that this poses significant exponential size reductions a
 
 #### Perks of Model Compression
 
- • Smaller model sizes — Models can actually be stored into embedded devices (ESP32 has ~4Mb of Flash Memory)
- • Faster Prediction Rates — This speeds up actionability, which provides viability for real-time decisions.
- • Lowered power consumption — An often overlooked feature as environments that train models often come with a constant supply of power, embedded devices usually run on a battery thus this is the most important feature.
+ *   Smaller model sizes — Models can actually be stored into embedded devices (ESP32 has ~4Mb of Flash Memory)
+ *   Faster Prediction Rates — This speeds up actionability, which provides viability for real-time decisions.
+ *   Lowered power consumption — An often overlooked feature as environments that train models often come with a constant supply of power, embedded devices usually run on a battery thus this is the most important feature.
 
 #### Hidden Perks of Model Compression
 
@@ -280,14 +280,14 @@ print('Test accuracy TFLITE model :', acc)
 #### Pros and Cons of TensorFlowLite
 
 **Pros:**
-* Easier to implement model compression
-* Minimal effect on accuracy (Depending on model)
-* Major speed up in prediction
+*   Easier to implement model compression
+*   Minimal effect on accuracy (Depending on model)
+*   Major speed up in prediction
 **Cons:**
-* Requires the latest Tensorflow version 2
-* Relatively new , Many operations (ops) are not supported yet such as SELU
-* Requires converting model which can fail
-* Possible complications when running inference compared to our good friend.predict() as it is more convoluted.
+*   Requires the latest Tensorflow version 2
+*   Relatively new , Many operations (ops) are not supported yet such as SELU
+*   Requires converting model which can fail
+*   Possible complications when running inference compared to our good friend.predict() as it is more convoluted.
 
 
 #### Conclusion
