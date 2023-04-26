@@ -105,33 +105,39 @@ print('which is about %d%% of the float model size.'\
 
  ```
 
-```
+
 9.#save your model in the SavedModel format
+```
 export_dir = 'saved_model/1'
 tf.saved_model.save(model, export_dir)
 ```
-```
+
 # Convert the model
+```
 converter = tf.lite.TFLiteConverter.from_saved_model(export_dir) # path to the SavedModel directory
 tflite_model = converter.convert()
 ```
-```
+
 # Save the model.
+```
 with open('model.tflite', 'wb') as f:
   f.write(tflite_model)
 ```
+
+# Save the keras model after compiling
 ```
-#Save the keras model after compiling
 model.save('model_keras.h5')
 model_keras= tf.keras.models.load_model('model_keras.h5')
 ```
-```
+
 # Converting a tf.Keras model to a TensorFlow Lite model.
+```
 converter = tf.lite.TFLiteConverter.from_keras_model(model_keras)
 tflite_model = converter.convert()
 ```
-```
+
 # Save the model.
+```
 with open('model.tflite', 'wb') as f:
   f.write(tflite_model)
 ```
