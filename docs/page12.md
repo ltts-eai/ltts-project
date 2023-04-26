@@ -156,3 +156,4 @@ torch.onnx.export(resnet,
                   export_params=True,
                   opset_version=10)
 ```
+![o/p](images/comparison.jpg)
