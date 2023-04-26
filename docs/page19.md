@@ -168,3 +168,16 @@ model_for_pruning.compile(optimizer='adam',
 
 model_for_pruning.summary()
 ```
+11.## fine tuning for 2 epochs
+```
+logdir = tempfile.mkdtemp()
+
+callbacks = [
+  tfmot.sparsity.keras.UpdatePruningStep(),
+  tfmot.sparsity.keras.PruningSummaries(log_dir=logdir),
+]
+
+model_for_pruning.fit(train_images, train_labels,
+                  batch_size=batch_size, epochs=epochs, validation_split=validation_split,
+                  callbacks=callbacks)
+```
