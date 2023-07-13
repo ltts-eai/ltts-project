@@ -23,3 +23,5 @@ We can adopt ChannelPrunedLearner to shrink the number of channels for convoluti
 ![img](docs/images/img22.PNG)
 
 We can adopt UniformQuantTFLearner to uniformly quantize model weights from 32-bit floating-point numbers to 8-bit fixed-point numbers. The resulting model can be converted into the TensorFlow Lite format for deployment on mobile devices. In the following two tables, we show that 8-bit quantized models can be as accurate as (or even better than) the original 32-bit ones, and the inference time can be significantly reduced after quantization.
+
+![img]()
