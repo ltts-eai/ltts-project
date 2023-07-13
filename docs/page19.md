@@ -1,4 +1,4 @@
-#TENSORFLOW
+# TENSORFLOW
 
 In this session, we will examine several optimisation techniques, such as weight pruning, by training a tf.keras model from scratch for the MNIST dataset. This model will serve as the baseline for conversion to a tflite model.
 
