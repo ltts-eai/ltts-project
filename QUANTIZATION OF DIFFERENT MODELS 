@@ -14,3 +14,6 @@ We utilized several essential techniques outlined in this previous blog to impro
 The training process we utilized comprises two key components: the data pipeline and the training hyperparameters.
 Combining these data pipeline strategies and training hyperparameters, we could achieve a remarkable Top 1 Accuracy of 81.9% on ImageNet with ResNet50.
 reference:! [https://deci.ai/blog/resnet50-how-to-achieve-sota-accuracy-on-imagenet/#:~:text=They%20boosted%20ResNet50%20to%20a,%25%20accuracy%2C%20so%20this%20improved.]
+# MOBILENETV1
+We adopt ChannelPrunedLearner to shrink the number of channels for convolutional layers to reduce the computation complexity. Instead of using the same pruning ratio for all layers, we utilize the DDPG algorithm as the RL agent to iteratively search for the optimal pruning ratio of each layer. After obtaining the optimal pruning ratios, group fine-tuning is adopted to further improve the compressed model's accuracy, as demonstrated below:
+![img]()
