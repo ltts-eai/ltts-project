@@ -352,3 +352,23 @@ In this example, we use the MNIST dataset and a simple fully connected neural ne
 ### Comparision of the accuracy of Single shot pruning and Iterative pruning in various models
 
 ![op](images/Screenshot%202023-07-13%20150204.png)
+
+## Advantages of Single-shot and Iterative Pruning
+
+The choice between single-shot pruning and iterative pruning depends on various factors, including the specific requirements of your task, the available computational resources, and the desired balance between model size and accuracy. Both approaches have their advantages and considerations:
+
+#### Single-shot pruning:
+
+* **Simplicity:** Single-shot pruning involves pruning the network in a single pass, which can be simpler to implement compared to the iterative approach.
+* **Reduced computational cost:** Since single-shot pruning requires only one pass, it can be computationally more efficient compared to iterative pruning, which involves multiple passes of pruning and fine-tuning.
+* **Fixed model size:** Single-shot pruning provides a fixed and known model size after pruning, making it easier to deploy and manage the pruned model.
+
+#### Iterative pruning:
+
+* **Better accuracy retention:** Iterative pruning allows for gradual pruning, which can help maintain or recover model accuracy more effectively. It provides an opportunity to fine-tune the model after each pruning step, reducing the impact on accuracy compared to single-shot pruning.
+* **More aggressive pruning:** Iterative pruning allows for multiple iterations, enabling more aggressive pruning and potentially achieving higher compression rates.
+* **Adaptive pruning:** With iterative pruning, you can adaptively adjust the pruning threshold or rate based on the model's performance during the pruning process, leading to potentially better results.
+
+
+## Conclusion
+Single-shot pruning is a simpler and computationally more efficient approach, while iterative pruning offers better accuracy retention and the ability to achieve higher compression rates. The choice between them depends on the specific trade-offs and priorities for your particular use case. It's often recommended to experiment with both approaches and evaluate their impact on accuracy, model size, and computational requirements to determine the most suitable pruning method for your needs.
