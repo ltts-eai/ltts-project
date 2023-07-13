@@ -1,5 +1,12 @@
-#RESNET 50 
+# RESNET 50 
  DATASET USED **IMAGENET**
 Let us discuss the demonstration on how the techniques allowed us to achieve 81.9% Top 1 Accuracy on ImageNet with ResNet50, outperforming pre-existing SOTA results. 
+![img](docs/images/img20.PNG)
 
 Choosing the best neural network training recipe for deep learning models is challenging. A paper called “Resnet Strikes Back” demonstrated the significance of the right training for training ResNet50 on ImageNet. They boosted ResNet50 to a top-1 accuracy of 80.4% on ImageNet-1K. The original ResNet50 recipe reached 75.8% accuracy, so this improved. 
+## Improving upon resnet strike back:
+Knowledge Distillation. A training technique that trains small machine learning models to be as accurate as large models by transferring knowledge. Read more about knowledge distillation here.
+We apply EMA. A method that increases the stability of a model’s convergence and helps it reach a better overall solution by preventing convergence to local minima. 
+Weight averaging. Weight averaging is a post-training method that takes the best model weights across the training and averages them into a single model. 
+We don’t apply stochastic depth. Stochastic depth aims to shrink the depth of a network by randomly removing/deactivating residual blocks during training.
+We utilized several essential techniques outlined in this previous blog to improve the A1 recipe. 
