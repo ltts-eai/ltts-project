@@ -52,3 +52,8 @@ References:
 3.[https://tejasmohanayyar.medium.com/a-practical-experiment-for-comparing-lenet-alexnet-vgg-and-resnet-models-with-their-advantages-d932fb7c7d17]
 
 # DenseNet-101
+## Advantages of densenet:
+![img](docs/images/img24.PNG)
+![img](docs/images/img25.PNG)
+![img](docs/images/img26.PNG)
+![img](docs/images/img27.PNG)
