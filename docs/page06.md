@@ -18,10 +18,10 @@ Pruning is one of the methods for inference to efficiently produce models smalle
 
 Our first step is to get a couple of imports out of the way:
 
-    -Os and Zipfile will help us in assessing the size of the models.
-    -tensorflow_model_optimization for model pruning.
-    -load_model for loading a saved model.
-    -and of course tensorflow and keras.
+*  Os and Zipfile will help us in assessing the size of the models.
+*  tensorflow_model_optimization for model pruning.
+*  load_model for loading a saved model.
+*  and of course tensorflow and keras.
 
 finally we'll able to visualize the models:
 
