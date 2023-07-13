@@ -13,7 +13,8 @@ We utilized several essential techniques outlined in this previous blog to impro
 ## Steps for training resnet 50:
 The training process we utilized comprises two key components: the data pipeline and the training hyperparameters.
 Combining these data pipeline strategies and training hyperparameters, we could achieve a remarkable Top 1 Accuracy of 81.9% on ImageNet with ResNet50.
-reference:! [https://deci.ai/blog/resnet50-how-to-achieve-sota-accuracy-on-imagenet/#:~:text=They%20boosted%20ResNet50%20to%20a,%25%20accuracy%2C%20so%20this%20improved.]
+Reference:[https://deci.ai/blog/resnet50-how-to-achieve-sota-accuracy-on-imagenet/#:~:text=They%20boosted%20ResNet50%20to%20a,%25%20accuracy%2C%20so%20this%20improved.]
+
 # MOBILENETV1
 
 The original uncompressed MobileNet-v1's top-1 accuracy is 70.89%.
@@ -24,4 +25,23 @@ We can adopt ChannelPrunedLearner to shrink the number of channels for convoluti
 
 We can adopt UniformQuantTFLearner to uniformly quantize model weights from 32-bit floating-point numbers to 8-bit fixed-point numbers. The resulting model can be converted into the TensorFlow Lite format for deployment on mobile devices. In the following two tables, we show that 8-bit quantized models can be as accurate as (or even better than) the original 32-bit ones, and the inference time can be significantly reduced after quantization.
 
-![img]()
+![img](docs/images/img23.PNG)
+Reference: [https://pocketflow.github.io/performance/#:~:text=Note%3A%20The%20original%20uncompressed%20MobileNet,%2D1%20accuracy%20is%2070.89%25.]
+
+# VGG 16
+## Limitations of VGG 16:
+
+->It is very slow to train (the original VGG model was trained on Nvidia Titan GPU for 2-3 weeks).
+->The size of VGG-16 trained imageNet weights is 528 MB. So, it takes quite a lot of disk space and bandwidth 
+  which makes it inefficient.
+->138 million parameters lead to exploding gradients problem.
+->Resnets are introduced to prevent exploding gradients problem that occurred in VGG-16.
+## Challenges of VGG 16:
+->It is very slow to train (the original VGG model was trained on the Nvidia Titan GPU for 2–3 weeks).
+->The size of VGG-16 trained imageNet weights is 528 MB. So, it takes quite a lot of disk space and bandwidth that 
+ makes it inefficient.
+References
+
+Reference: 
+1. [https://pyimagesearch.com/2017/03/20/imagenet-vggnet-resnet-inception-xception-keras/#:~:text=Even%20though%20ResNet%20is%20much,down%20to%20102MB%20for%20ResNet50.]  
+2.[https://medium.com/@mygreatlearning/everything-you-need-to-know-about-vgg16-7315defb5918]
