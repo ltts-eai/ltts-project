@@ -10,3 +10,7 @@ We apply EMA. A method that increases the stability of a model’s convergence a
 Weight averaging. Weight averaging is a post-training method that takes the best model weights across the training and averages them into a single model. 
 We don’t apply stochastic depth. Stochastic depth aims to shrink the depth of a network by randomly removing/deactivating residual blocks during training.
 We utilized several essential techniques outlined in this previous blog to improve the A1 recipe. 
+## Steps for training resnet 50:
+The training process we utilized comprises two key components: the data pipeline and the training hyperparameters.
+Combining these data pipeline strategies and training hyperparameters, we could achieve a remarkable Top 1 Accuracy of 81.9% on ImageNet with ResNet50.
+reference:! [https://deci.ai/blog/resnet50-how-to-achieve-sota-accuracy-on-imagenet/#:~:text=They%20boosted%20ResNet50%20to%20a,%25%20accuracy%2C%20so%20this%20improved.]
