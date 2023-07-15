@@ -1,58 +1,47 @@
-# CAFFE 
+# RESNET 50 
+ DATASET USED **IMAGENET**
+Let us discuss the demonstration on how the techniques allowed us to achieve 81.9% Top 1 Accuracy on ImageNet with ResNet50, outperforming pre-existing SOTA results. 
+![img](images/img20.PNG)
 
-Caffe is a deep learning framework made with expression, speed, and modularity in mind. It is developed by Berkeley AI Research (BAIR) and by community contributors. Yangqing Jia created the project during his PhD at UC Berkeley. Caffe is released under the BSD 2-Clause license.
+Choosing the best neural network training recipe for deep learning models is challenging. A paper called “Resnet Strikes Back” demonstrated the significance of the right training for training ResNet50 on ImageNet. They boosted ResNet50 to a top-1 accuracy of 80.4% on ImageNet-1K. The original ResNet50 recipe reached 75.8% accuracy, so this improved. 
+## Improving upon resnet strike back:
+Knowledge Distillation. A training technique that trains small machine learning models to be as accurate as large models by transferring knowledge. Read more about knowledge distillation here.
+We apply EMA. A method that increases the stability of a model’s convergence and helps it reach a better overall solution by preventing convergence to local minima. 
+Weight averaging. Weight averaging is a post-training method that takes the best model weights across the training and averages them into a single model. 
+We don’t apply stochastic depth. Stochastic depth aims to shrink the depth of a network by randomly removing/deactivating residual blocks during training.
+We utilized several essential techniques outlined in this previous blog to improve the A1 recipe. 
+## Steps for training resnet 50:
+The training process we utilized comprises two key components: the data pipeline and the training hyperparameters.
+Combining these data pipeline strategies and training hyperparameters, we could achieve a remarkable Top 1 Accuracy of 81.9% on ImageNet with ResNet50.
+Reference:[https://deci.ai/blog/resnet50-how-to-achieve-sota-accuracy-on-imagenet/#:~:text=They%20boosted%20ResNet50%20to%20a,%25%20accuracy%2C%20so%20this%20improved.]
 
-## WHY CAFFE?
+# MOBILENETV1
 
-Expressive architecture encourages application and innovation. Models and optimization are defined by configuration without hard-coding. Switch between CPU and GPU by setting a single flag to train on a GPU machine then deploy to commodity clusters or mobile devices.
+The original uncompressed MobileNet-v1's top-1 accuracy is 70.89%.
 
-Extensible code fosters active development. In Caffe’s first year, it has been forked by over 1,000 developers and had many significant changes contributed back. Thanks to these contributors the framework tracks the state-of-the-art in both code and models.
+We can adopt ChannelPrunedLearner to shrink the number of channels for convolutional layers to reduce the computation complexity. Instead of using the same pruning ratio for all layers, we utilize the DDPG algorithm as the RL agent to iteratively search for the optimal pruning ratio of each layer. After obtaining the optimal pruning ratios, group fine-tuning is adopted to further improve the compressed model's accuracy, as demonstrated below:
 
-Speed makes Caffe perfect for research experiments and industry deployment. Caffe can process over 60M images per day with a single NVIDIA K40 GPU*. That’s 1 ms/image for inference and 4 ms/image for learning and more recent library versions and hardware are faster still. We believe that Caffe is among the fastest convnet implementations available.
+![img](images/img22.PNG)
 
+We can adopt UniformQuantTFLearner to uniformly quantize model weights from 32-bit floating-point numbers to 8-bit fixed-point numbers. The resulting model can be converted into the TensorFlow Lite format for deployment on mobile devices. In the following two tables, we show that 8-bit quantized models can be as accurate as (or even better than) the original 32-bit ones, and the inference time can be significantly reduced after quantization.
 
-## HOW CAFFE WORKS?
+![img](images/img23.PNG)
+Reference: [https://pocketflow.github.io/performance/#:~:text=Note%3A%20The%20original%20uncompressed%20MobileNet,%2D1%20accuracy%20is%2070.89%25.]
 
-Caffe (Convolutional Architecture for Fast Feature Embedding) is a deep learning framework that is used for various machine learning tasks, including image classification, segmentation, and object detection. Here's a brief overview of how Caffe works:
+# VGG 16
+## Limitations of VGG 16:
 
-Data preparation: Caffe requires the input data to be in a specific format. The data is typically preprocessed to ensure that it meets the requirements of the framework.
+->It is very slow to train (the original VGG model was trained on Nvidia Titan GPU for 2-3 weeks).
+->The size of VGG-16 trained imageNet weights is 528 MB. So, it takes quite a lot of disk space and bandwidth 
+  which makes it inefficient.
+->138 million parameters lead to exploding gradients problem.
+->Resnets are introduced to prevent exploding gradients problem that occurred in VGG-16.
+## Challenges of VGG 16:
+->It is very slow to train (the original VGG model was trained on the Nvidia Titan GPU for 2–3 weeks).
+->The size of VGG-16 trained imageNet weights is 528 MB. So, it takes quite a lot of disk space and bandwidth that 
+ makes it inefficient.
+References
 
-Network definition: Caffe uses a domain-specific language called "Caffe Model Definition" to define the neural network architecture. This language provides a way to specify the layers of the network, their types, and their parameters.
-
-Network training: Once the network is defined, Caffe uses backpropagation to train the model. The optimization algorithm minimizes the error between the predicted output and the actual output.
-
-Testing and validation: After training, the network is tested on a separate dataset to evaluate its accuracy and performance.
-
-Caffe is designed to be fast and efficient, and it can be used on both CPUs and GPUs. The framework has a large community of users and developers, and it is widely used in both academia and industry for a variety of applications.
-
-
-## Some key features of Caffe include:
-
-Modularity: Caffe is designed with modularity in mind, making it easy to define and customize the neural network architecture by stacking different layers.
-
-Performance: Caffe is optimized for both CPU and GPU usage and is designed to be fast and efficient. It supports parallelization and can handle large datasets.
-
-Pre-trained models: Caffe comes with a wide range of pre-trained models that can be used for various tasks, such as image recognition and object detection.
-
-Community: Caffe has a large and active community of users and developers who contribute to the development of the framework and provide support and guidance to new users.
-
-Caffe has been widely adopted in both academia and industry and is used for a variety of applications, including image and speech recognition, natural language processing, and autonomous driving.
-
-
-*Caffe framework provides few optimization techniques to enchance the performance of the model*
-
-1. GPU support: Caffe is designed to take advantage of GPUs to speed up training and inference. It uses CUDA (Compute Unified Device Architecture) to parallelize computations across multiple GPU devices.
-
-2. Multi-GPU support: Caffe supports multi-GPU training, allowing users to split the training process across multiple GPUs to reduce the training time.
-
-3. Distributed training: Caffe can also be used for distributed training across multiple machines. This allows for larger models and datasets to be trained.
-
-4. Memory optimization: Caffe provides several memory optimization techniques, such as memory pooling and shared memory, to reduce the memory requirements of the network.
-
-5. Quantization: Caffe supports quantization, which reduces the precision of the network's parameters to reduce memory and computation requirements.
-
-6. Model compression: Caffe provides several techniques for model compression, such as pruning, to reduce the size of the network without sacrificing performance.
-
-7. Low-level optimization: Caffe's C++ implementation is designed to be fast and efficient, with low-level optimizations such as loop unrolling and SSE/AVX vectorization. 
-
-By leveraging these optimization features, Caffe can train and deploy deep learning models more efficiently and with better performance.
+Reference: 
+1. [https://pyimagesearch.com/2017/03/20/imagenet-vggnet-resnet-inception-xception-keras/#:~:text=Even%20though%20ResNet%20is%20much,down%20to%20102MB%20for%20ResNet50.]  
+2. [https://medium.com/@mygreatlearning/everything-you-need-to-know-about-vgg16-7315defb5918]
