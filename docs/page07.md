@@ -43,9 +43,11 @@ Quantization is a powerful technique that strikes a balance between efficient ut
 Uniform Quantization: As the name implies, the quantized levels in the uniform quantization process are equally spaced. The uniform quantization is further categorized as mid-rise type uniform quantization and mid-tread type uniform quantization. Both the uniform quantization processes are symmetric about the respective axis.
 
 Mid-rise type uniform Quantization: Rise refers to the rising part. The origin of the discrete quantized signal lies in the middle of the rising part of the stair like graph, as shown below:
+
 ![Mid-rise uniform quantization](image.png)
 
 Mid-tread type uniform Quantization: Tread refers to the flat part. The origin of the discrete quantized signal lies in the middle of the tread part of the stair like graph, as shown below:
+
 ![Mid-tread uniform quantization](image-1.png)
 
 ## Quantization Frameworks
