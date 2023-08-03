@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://example.com/page06/" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Pruning - LTTS - EAI</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Pruning";
+        var mkdocs_page_input_path = "page06.md";
+        var mkdocs_page_url = "/page06/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> LTTS - EAI
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home page</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../page01/">Introduction to AI</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../page02/">Guideline to build framework</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../page03/">EAI frameworks</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../page04/">Interpreting TensorFlow lite framework</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../page05/">Optimization techniques</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="./">Pruning</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#types-of-pruning">Types of pruning</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#structured-and-unstructured-pruning">Structured and Unstructured Pruning</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#single-shot-pruning-one-shot-pruning">Single-shot pruning / one shot pruning</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#iterative-pruning">Iterative pruning</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#comparision-of-the-accuracy-of-single-shot-pruning-and-iterative-pruning-in-various-models">Comparision of the accuracy of Single shot pruning and Iterative pruning in various models</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#advantages-of-single-shot-and-iterative-pruning">Advantages of Single-shot and Iterative Pruning</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#single-shot-pruning">Single-shot pruning:</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#iterative-pruning_1">Iterative pruning:</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#conclusion">Conclusion</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../page07/">Quantization</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../page08/">Knowledge Distillation</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../page09/">Compression</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../page10/">Hardware Acceleration</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../page11/">PyTorch</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../page12/">ONNX</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../page14/">Optimization Techniques for PyTorch Framework</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../page15/">Model Compression with TensorFlow Lite: A Look into Reducing Model Size</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../page16/">Kernal fusion</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../page17/">Embedded hardware</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../page18/">TENSORFLOW</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../page19/">CAFFE</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../page20/">RESNET 50</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">LTTS - EAI</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a> &raquo;</li>
+      <li class="breadcrumb-item active">Pruning</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="pruning">Pruning</h1>
+<p>Pruning is a technique used in machine learning to reduce the size and complexity of a trained model. It involves removing unnecessary connections or neurons from a neural network, which can significantly reduce its size and improve its speed, without sacrificing its accuracy.</p>
+<p>Pruning can be performed in different ways, such as magnitude-based pruning, where weights with the smallest magnitudes are pruned, or structured pruning, where entire layers or blocks of neurons are pruned based on their importance to the network.</p>
+<p>Pruning is usually performed after a model has been trained and can be used in conjunction with other optimization techniques, such as quantization and compression, to further reduce the size and complexity of a model. Pruning can also be applied iteratively, where a model is pruned and then retrained, to achieve even greater reductions in size and complexity.</p>
+<p>One advantage of pruning is that it can lead to models that are more efficient and easier to deploy in real-world applications, particularly on embedded devices with limited memory and processing power. Additionally, pruning can also help to reduce the risk of overfitting, where a model becomes too complex and performs poorly on new data. However, it is important to note that pruning can also lead to a decrease in accuracy if too many connections or neurons are removed from the model.</p>
+<p>Compression is a technique used in machine learning to reduce the storage requirements of trained models, without significantly impacting their accuracy or performance. It involves using algorithms to compress the weights and activations of a model, which can greatly reduce the amount of memory required to store the model.</p>
+<p>Deep Learning models these days require a significant amount of computing, memory, and power which becomes a bottleneck in the conditions where we need real-time inference or to run models on edge devices and browsers with limited computational resources. Energy efficiency is a major concern for current deep learning models.</p>
+<p>Pruning is one of the methods for inference to efficiently produce models smaller in size, more memory-efficient, more power-efficient and faster at inference with minimal loss in accuracy, other such techniques being weight sharing and quantization. </p>
+<p><img alt="op" src="../images/Picture1.png" /></p>
+<p>Our first step is to get a couple of imports out of the way:</p>
+<ul>
+<li>Os and Zipfile will help us in assessing the size of the models.</li>
+<li>tensorflow_model_optimization for model pruning.</li>
+<li>load_model for loading a saved model.</li>
+<li>and of course tensorflow and keras.</li>
+</ul>
+<p>finally we'll able to visualize the models:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">import</span> <span class="nn">os</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kn">import</span> <span class="nn">zipfile</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="kn">import</span> <span class="nn">tensorflow_model_optimization</span> <span class="k">as</span> <span class="nn">tfmot</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="kn">from</span> <span class="nn">tensorflow.keras.models</span> <span class="kn">import</span> <span class="n">load_model</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="kn">from</span> <span class="nn">tensorflow</span> <span class="kn">import</span> <span class="n">keras</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="o">%</span><span class="n">load_ext</span> <span class="n">tensorboard</span> 
+</code></pre></div>
+<p>DATASET GENERATION</p>
+<p>For this experiment, we'll genertate a regression datset using sckit-learn. Thereafter, we split the datset into a training and test set:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">make_friedman1</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">make_friedman1</span><span class="p">(</span><span class="n">n_samples</span><span class="o">=</span><span class="mi">10000</span><span class="p">,</span> <span class="n">n_features</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.33</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+</code></pre></div>
+<p>MODEL WITHOUT PRUNING</p>
+<p>We’ll create a simple neural network to predict the target variable y. Then check the mean squared error. After this, we’ll compare this with the entire model pruned, and then with just the Dense layer pruned.</p>
+<p>Next, we step up a callback to stop training the model once it stops improving, after 30 epochs.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>     <span class="n">early_stop</span> <span class="o">=</span> <span class="n">keras</span><span class="o">.</span><span class="n">callbacks</span><span class="o">.</span><span class="n">EarlyStopping</span><span class="p">(</span><span class="n">monitor</span><span class="o">=</span><span class="err">’</span><span class="n">val_loss</span><span class="err">’</span><span class="p">,</span> <span class="n">patience</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+</code></pre></div>
+<p>Let’s print a summary of the model so that we can compare it with the summary of the pruned models.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>    <span class="n">model</span> <span class="o">=</span> <span class="n">setup_model</span><span class="p">()</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>    <span class="n">model</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+</code></pre></div>
+<p>Let’s compile the model and train it.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>    <span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="err">’</span><span class="n">adam</span><span class="err">’</span><span class="p">,</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>    <span class="n">loss</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">losses</span><span class="o">.</span><span class="n">mean_squared_error</span><span class="p">,</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>    <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="err">‘</span><span class="n">mae</span><span class="err">’</span><span class="p">,</span> <span class="err">‘</span><span class="n">mse</span><span class="err">’</span><span class="p">])</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>    <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span><span class="n">y_train</span><span class="p">,</span><span class="n">epochs</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span><span class="n">validation_split</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span><span class="n">callbacks</span><span class="o">=</span><span class="n">early_stop</span><span class="p">,</span><span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</code></pre></div>
+<p>Check the model summary. Compare this with the summary of the unpruned model.'</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>    <span class="n">model_to_prune</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+</code></pre></div>
+<p>We have to compile the model before we can fit it to the training and testing set.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>    <span class="n">model_to_prune</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="err">’</span><span class="n">adam</span><span class="err">’</span><span class="p">,</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>    <span class="n">loss</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">losses</span><span class="o">.</span><span class="n">mean_squared_error</span><span class="p">,</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>    <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="err">‘</span><span class="n">mae</span><span class="err">’</span><span class="p">,</span> <span class="err">‘</span><span class="n">mse</span><span class="err">’</span><span class="p">])</span>
+</code></pre></div>
+<p>Since we’re applying pruning, we have to define a couple of pruning callbacks in addition to the early stopping callback.</p>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>   <span class="n">tfmot</span><span class="o">.</span><span class="n">sparsity</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">UpdatePruningStep</span><span class="p">()</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>   <span class="err">```</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>       <span class="n">Updates</span> <span class="n">pruning</span> <span class="n">wrappers</span> <span class="k">with</span> <span class="n">the</span> <span class="n">optimizer</span> <span class="n">step</span><span class="o">.</span> <span class="n">Failure</span> <span class="n">to</span> <span class="n">specify</span> <span class="n">it</span> <span class="n">will</span> <span class="n">result</span> <span class="ow">in</span> <span class="n">an</span> <span class="n">error</span><span class="o">.</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="err">```</span><span class="n">python</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>   <span class="n">tfmot</span><span class="o">.</span><span class="n">sparsity</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">PruningSummaries</span><span class="p">()</span> 
+</code></pre></div>
+   adds pruning summaries to the Tensorboard.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>     <span class="n">log_dir</span> <span class="o">=</span> <span class="err">‘</span><span class="o">.</span><span class="n">models</span><span class="err">’</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>    <span class="n">callbacks</span> <span class="o">=</span> <span class="p">[</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>     <span class="n">tfmot</span><span class="o">.</span><span class="n">sparsity</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">UpdatePruningStep</span><span class="p">(),</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>     <span class="c1"># Log sparsity and other metrics in Tensorboard.</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>     <span class="n">tfmot</span><span class="o">.</span><span class="n">sparsity</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">PruningSummaries</span><span class="p">(</span><span class="n">log_dir</span><span class="o">=</span><span class="n">log_dir</span><span class="p">),</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>     <span class="n">keras</span><span class="o">.</span><span class="n">callbacks</span><span class="o">.</span><span class="n">EarlyStopping</span><span class="p">(</span><span class="n">monitor</span><span class="o">=</span><span class="err">’</span><span class="n">val_loss</span><span class="err">’</span><span class="p">,</span> <span class="n">patience</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>    <span class="p">]</span>
+</code></pre></div>
+<p>With that out of the way, we can now fit the model to the training set.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>    <span class="n">model_to_prune</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span><span class="n">y_train</span><span class="p">,</span><span class="n">epochs</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span><span class="n">validation_split</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span><span class="n">callbacks</span><span class="o">=</span><span class="n">callbacks</span><span class="p">,</span><span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>    <span class="n">Upon</span> <span class="n">checking</span> <span class="n">the</span> <span class="n">mean</span> <span class="n">squared</span> <span class="n">error</span> <span class="k">for</span> <span class="n">this</span> <span class="n">model</span><span class="p">,</span> <span class="n">we</span> <span class="n">notice</span> <span class="n">that</span> <span class="n">it</span><span class="err">’</span><span class="n">s</span> <span class="n">slightly</span> <span class="n">higher</span> <span class="n">than</span> <span class="n">the</span> <span class="n">one</span> <span class="k">for</span> <span class="n">the</span> <span class="n">unpruned</span> <span class="n">model</span><span class="o">.</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>    <span class="n">prune_predictions</span> <span class="o">=</span> <span class="n">model_to_prune</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>    <span class="nb">print</span><span class="p">(</span><span class="err">‘</span><span class="n">Whole</span> <span class="n">Model</span> <span class="n">Pruned</span> <span class="n">MSE</span> <span class="o">%</span><span class="mf">.4</span><span class="n">f</span><span class="err">’</span> <span class="o">%</span> <span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="n">prune_predictions</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">3300</span><span class="p">,)))</span>
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>    <span class="n">Whole</span> <span class="n">Model</span> <span class="n">Pruned</span> <span class="n">MSE</span>  <span class="mf">0.1830</span>
+</code></pre></div>
+<h3 id="types-of-pruning">Types of pruning</h3>
+<h4 id="structured-and-unstructured-pruning">Structured and Unstructured Pruning</h4>
+<p>Individual parameters are pruned using an unstructured pruning approach. This results in a sparse neural network, which, while lower in terms of parameter count, may not be configured in a way that promotes speed improvements. 
+Randomly zeroing out the parameters saves memory but may not necessarily improve computing performance because we end up conducting the same number of matrix multiplications as before. Because we set specific weights in the weight matrix to zero, this is also known as Weight Pruning.</p>
+<p><img alt="op" src="../images/Picture2.png" /></p>
+<h4 id="single-shot-pruning-one-shot-pruning">Single-shot pruning / one shot pruning</h4>
+<p>A one-shot training and pruning framework that compresses a full neural network into a slimmer one with competitive performance by Only-Train-Once. OTO dramatically simplifies the complex multi-stage training pipelines of the existing pruning approaches, fits various architectures and applications, and hence is generic and efficient.
+The oneshot pruning approach works like iterative, but uses a prune rate of P=1.0. This means we prune the entire model in one shot reducing it down entirely to a size of [1, 1]. We run oneshot on all of the potential starting points we described in iterative (second approach), then we select the best performing oneshot model.</p>
+<p>A simple example of Single shot pruning where the threshold is set to 0.1 
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>import torch
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>import torch.nn as nn
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>import torch.optim as optim
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>import torchvision
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>import torchvision.transforms as transforms
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a># Define your neural network model
+<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>class Net(nn.Module):
+<a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>    def __init__(self):
+<a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a>        super(Net, self).__init__()
+<a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a>        self.conv1 = nn.Conv2d(3, 64, kernel_size=3)
+<a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a>        self.conv2 = nn.Conv2d(64, 64, kernel_size=3)
+<a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a>        self.fc1 = nn.Linear(64 * 5 * 5, 384)
+<a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a>        self.fc2 = nn.Linear(384, 10)
+<a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a>
+<a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a>    def forward(self, x):
+<a id="__codelineno-10-17" name="__codelineno-10-17" href="#__codelineno-10-17"></a>        x = self.conv1(x)
+<a id="__codelineno-10-18" name="__codelineno-10-18" href="#__codelineno-10-18"></a>        x = self.conv2(x)
+<a id="__codelineno-10-19" name="__codelineno-10-19" href="#__codelineno-10-19"></a>        x = x.view(-1, 64 * 5 * 5)
+<a id="__codelineno-10-20" name="__codelineno-10-20" href="#__codelineno-10-20"></a>        x = self.fc1(x)
+<a id="__codelineno-10-21" name="__codelineno-10-21" href="#__codelineno-10-21"></a>        x = self.fc2(x)
+<a id="__codelineno-10-22" name="__codelineno-10-22" href="#__codelineno-10-22"></a>        return x
+<a id="__codelineno-10-23" name="__codelineno-10-23" href="#__codelineno-10-23"></a>
+<a id="__codelineno-10-24" name="__codelineno-10-24" href="#__codelineno-10-24"></a># Load your dataset and create data loaders
+<a id="__codelineno-10-25" name="__codelineno-10-25" href="#__codelineno-10-25"></a>transform = transforms.Compose(
+<a id="__codelineno-10-26" name="__codelineno-10-26" href="#__codelineno-10-26"></a>    [transforms.ToTensor(), transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))]
+<a id="__codelineno-10-27" name="__codelineno-10-27" href="#__codelineno-10-27"></a>)
+<a id="__codelineno-10-28" name="__codelineno-10-28" href="#__codelineno-10-28"></a>trainset = torchvision.datasets.CIFAR10(root=&#39;./data&#39;, train=True, download=True, transform=transform)
+<a id="__codelineno-10-29" name="__codelineno-10-29" href="#__codelineno-10-29"></a>trainloader = torch.utils.data.DataLoader(trainset, batch_size=32, shuffle=True, num_workers=2)
+<a id="__codelineno-10-30" name="__codelineno-10-30" href="#__codelineno-10-30"></a>
+<a id="__codelineno-10-31" name="__codelineno-10-31" href="#__codelineno-10-31"></a># Train the initial model
+<a id="__codelineno-10-32" name="__codelineno-10-32" href="#__codelineno-10-32"></a>device = torch.device(&quot;cuda&quot; if torch.cuda.is_available() else &quot;cpu&quot;)
+<a id="__codelineno-10-33" name="__codelineno-10-33" href="#__codelineno-10-33"></a>net = Net().to(device)
+<a id="__codelineno-10-34" name="__codelineno-10-34" href="#__codelineno-10-34"></a>criterion = nn.CrossEntropyLoss()
+<a id="__codelineno-10-35" name="__codelineno-10-35" href="#__codelineno-10-35"></a>optimizer = optim.SGD(net.parameters(), lr=0.01, momentum=0.9, weight_decay=5e-4)
+<a id="__codelineno-10-36" name="__codelineno-10-36" href="#__codelineno-10-36"></a>
+<a id="__codelineno-10-37" name="__codelineno-10-37" href="#__codelineno-10-37"></a>def train(net, dataloader, criterion, optimizer, device):
+<a id="__codelineno-10-38" name="__codelineno-10-38" href="#__codelineno-10-38"></a>    net.train()
+<a id="__codelineno-10-39" name="__codelineno-10-39" href="#__codelineno-10-39"></a>    running_loss = 0.0
+<a id="__codelineno-10-40" name="__codelineno-10-40" href="#__codelineno-10-40"></a>    for inputs, labels in dataloader:
+<a id="__codelineno-10-41" name="__codelineno-10-41" href="#__codelineno-10-41"></a>        inputs, labels = inputs.to(device), labels.to(device)
+<a id="__codelineno-10-42" name="__codelineno-10-42" href="#__codelineno-10-42"></a>        optimizer.zero_grad()
+<a id="__codelineno-10-43" name="__codelineno-10-43" href="#__codelineno-10-43"></a>        outputs = net(inputs)
+<a id="__codelineno-10-44" name="__codelineno-10-44" href="#__codelineno-10-44"></a>        loss = criterion(outputs, labels)
+<a id="__codelineno-10-45" name="__codelineno-10-45" href="#__codelineno-10-45"></a>        loss.backward()
+<a id="__codelineno-10-46" name="__codelineno-10-46" href="#__codelineno-10-46"></a>        optimizer.step()
+<a id="__codelineno-10-47" name="__codelineno-10-47" href="#__codelineno-10-47"></a>        running_loss += loss.item()
+<a id="__codelineno-10-48" name="__codelineno-10-48" href="#__codelineno-10-48"></a>    return running_loss
+<a id="__codelineno-10-49" name="__codelineno-10-49" href="#__codelineno-10-49"></a>
+<a id="__codelineno-10-50" name="__codelineno-10-50" href="#__codelineno-10-50"></a>for epoch in range(10):
+<a id="__codelineno-10-51" name="__codelineno-10-51" href="#__codelineno-10-51"></a>    loss = train(net, trainloader, criterion, optimizer, device)
+<a id="__codelineno-10-52" name="__codelineno-10-52" href="#__codelineno-10-52"></a>    print(f&quot;Epoch {epoch+1}: Loss = {loss}&quot;)
+<a id="__codelineno-10-53" name="__codelineno-10-53" href="#__codelineno-10-53"></a>
+<a id="__codelineno-10-54" name="__codelineno-10-54" href="#__codelineno-10-54"></a># Compute importance scores (e.g., magnitude-based pruning)
+<a id="__codelineno-10-55" name="__codelineno-10-55" href="#__codelineno-10-55"></a>def compute_importance_scores(net, dataloader, device):
+<a id="__codelineno-10-56" name="__codelineno-10-56" href="#__codelineno-10-56"></a>    net.eval()
+<a id="__codelineno-10-57" name="__codelineno-10-57" href="#__codelineno-10-57"></a>    importance_scores = []
+<a id="__codelineno-10-58" name="__codelineno-10-58" href="#__codelineno-10-58"></a>    for inputs, _ in dataloader:
+<a id="__codelineno-10-59" name="__codelineno-10-59" href="#__codelineno-10-59"></a>        inputs = inputs.to(device)
+<a id="__codelineno-10-60" name="__codelineno-10-60" href="#__codelineno-10-60"></a>        outputs = net(inputs)
+<a id="__codelineno-10-61" name="__codelineno-10-61" href="#__codelineno-10-61"></a>        grad_outputs = torch.zeros_like(outputs).to(device)
+<a id="__codelineno-10-62" name="__codelineno-10-62" href="#__codelineno-10-62"></a>        outputs.backward(grad_outputs)
+<a id="__codelineno-10-63" name="__codelineno-10-63" href="#__codelineno-10-63"></a>        for param in net.parameters():
+<a id="__codelineno-10-64" name="__codelineno-10-64" href="#__codelineno-10-64"></a>            if param.grad is not None:
+<a id="__codelineno-10-65" name="__codelineno-10-65" href="#__codelineno-10-65"></a>                importance_scores.append(torch.abs(param.grad))
+<a id="__codelineno-10-66" name="__codelineno-10-66" href="#__codelineno-10-66"></a>    return torch.cat(importance_scores)
+<a id="__codelineno-10-67" name="__codelineno-10-67" href="#__codelineno-10-67"></a>
+<a id="__codelineno-10-68" name="__codelineno-10-68" href="#__codelineno-10-68"></a># Prune the network based on importance scores
+<a id="__codelineno-10-69" name="__codelineno-10-69" href="#__codelineno-10-69"></a>def prune_network(net, importance_scores, pruning_threshold):
+<a id="__codelineno-10-70" name="__codelineno-10-70" href="#__codelineno-10-70"></a>    for name, module in net.named_modules():
+<a id="__codelineno-10-71" name="__codelineno-10-71" href="#__codelineno-10-71"></a>        if isinstance(module, nn.Conv2d) or isinstance(module, nn.Linear):
+<a id="__codelineno-10-72" name="__codelineno-10-72" href="#__codelineno-10-72"></a>            importance_scores_layer = importance_scores[name]
+<a id="__codelineno-10-73" name="__codelineno-10-73" href="#__codelineno-10-73"></a>            mask = importance_scores_layer &gt; pruning_threshold
+<a id="__codelineno-10-74" name="__codelineno-10-74" href="#__codelineno-10-74"></a>            module.weight.data *= mask.float()
+<a id="__codelineno-10-75" name="__codelineno-10-75" href="#__codelineno-10-75"></a>            if module.bias is not None:
+<a id="__codelineno-10-76" name="__codelineno-10-76" href="#__codelineno-10-76"></a>                module.bias.data *= mask.float()
+<a id="__codelineno-10-77" name="__codelineno-10-77" href="#__codelineno-10-77"></a>
+<a id="__codelineno-10-78" name="__codelineno-10-78" href="#__codelineno-10-78"></a># Fine-tune the pruned model
+<a id="__codelineno-10-79" name="__codelineno-10-79" href="#__codelineno-10-79"></a>def fine_tune(net, dataloader, criterion, optimizer, device):
+<a id="__codelineno-10-80" name="__codelineno-10-80" href="#__codelineno-10-80"></a>    net.train()
+<a id="__codelineno-10-81" name="__codelineno-10-81" href="#__codelineno-10-81"></a>    for epoch in range(5):
+<a id="__codelineno-10-82" name="__codelineno-10-82" href="#__codelineno-10-82"></a>        running_loss = 0.0
+<a id="__codelineno-10-83" name="__codelineno-10-83" href="#__codelineno-10-83"></a>        for inputs, labels in dataloader:
+<a id="__codelineno-10-84" name="__codelineno-10-84" href="#__codelineno-10-84"></a>            inputs, labels = inputs.to(device), labels.to(device)
+<a id="__codelineno-10-85" name="__codelineno-10-85" href="#__codelineno-10-85"></a>            optimizer.zero_grad()
+<a id="__codelineno-10-86" name="__codelineno-10-86" href="#__codelineno-10-86"></a>            outputs = net(inputs)
+<a id="__codelineno-10-87" name="__codelineno-10-87" href="#__codelineno-10-87"></a>            loss = criterion(outputs, labels)
+<a id="__codelineno-10-88" name="__codelineno-10-88" href="#__codelineno-10-88"></a>            loss.backward()
+<a id="__codelineno-10-89" name="__codelineno-10-89" href="#__codelineno-10-89"></a>            optimizer.step()
+<a id="__codelineno-10-90" name="__codelineno-10-90" href="#__codelineno-10-90"></a>            running_loss += loss.item()
+<a id="__codelineno-10-91" name="__codelineno-10-91" href="#__codelineno-10-91"></a>        print(f&quot;Fine-tuning Epoch {epoch+1}: Loss = {running_loss}&quot;)
+<a id="__codelineno-10-92" name="__codelineno-10-92" href="#__codelineno-10-92"></a>
+<a id="__codelineno-10-93" name="__codelineno-10-93" href="#__codelineno-10-93"></a># Perform single-shot pruning
+<a id="__codelineno-10-94" name="__codelineno-10-94" href="#__codelineno-10-94"></a>pruning_threshold = 0.1
+<a id="__codelineno-10-95" name="__codelineno-10-95" href="#__codelineno-10-95"></a>importance_scores = compute_importance_scores(net, trainloader, device)
+<a id="__codelineno-10-96" name="__codelineno-10-96" href="#__codelineno-10-96"></a>prune_network(net, importance_scores, pruning_threshold)
+<a id="__codelineno-10-97" name="__codelineno-10-97" href="#__codelineno-10-97"></a>fine_tune(net, trainloader, criterion, optimizer, device)
+</code></pre></div>
+This is a simple CNN model with CIFAR-10 dataset</p>
+<h4 id="iterative-pruning">Iterative pruning</h4>
+<p>Iterative Pruning or dynamic pruning repeats the process of pruning the network to some extent and retraining it until the desired pruning rate is obtained.
+A simple iterative approach can be thought of as starting with a model size and reducing it slowly until we reach an optimal size based on criteria for accuracy and speed performance. The iterative approach uses a pruning rate P=0.5 (50%).</p>
+<p>Here's a code snippet that demonstrates the iterative pruning process using PyTorch:</p>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>import torch
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>import torch.nn as nn
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>import torch.optim as optim
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>import torchvision
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>import torchvision.transforms as transforms
+<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>
+<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a># Define your neural network model
+<a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>class Net(nn.Module):
+<a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a>    def __init__(self):
+<a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a>        super(Net, self).__init__()
+<a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a>        self.fc1 = nn.Linear(784, 300)
+<a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a>        self.fc2 = nn.Linear(300, 100)
+<a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a>        self.fc3 = nn.Linear(100, 10)
+<a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a>
+<a id="__codelineno-11-15" name="__codelineno-11-15" href="#__codelineno-11-15"></a>    def forward(self, x):
+<a id="__codelineno-11-16" name="__codelineno-11-16" href="#__codelineno-11-16"></a>        x = x.view(x.size(0), -1)
+<a id="__codelineno-11-17" name="__codelineno-11-17" href="#__codelineno-11-17"></a>        x = self.fc1(x)
+<a id="__codelineno-11-18" name="__codelineno-11-18" href="#__codelineno-11-18"></a>        x = self.fc2(x)
+<a id="__codelineno-11-19" name="__codelineno-11-19" href="#__codelineno-11-19"></a>        x = self.fc3(x)
+<a id="__codelineno-11-20" name="__codelineno-11-20" href="#__codelineno-11-20"></a>        return x
+<a id="__codelineno-11-21" name="__codelineno-11-21" href="#__codelineno-11-21"></a>
+<a id="__codelineno-11-22" name="__codelineno-11-22" href="#__codelineno-11-22"></a># Load your dataset and create data loaders
+<a id="__codelineno-11-23" name="__codelineno-11-23" href="#__codelineno-11-23"></a>transform = transforms.Compose(
+<a id="__codelineno-11-24" name="__codelineno-11-24" href="#__codelineno-11-24"></a>    [transforms.ToTensor(), transforms.Normalize((0.5,), (0.5,))]
+<a id="__codelineno-11-25" name="__codelineno-11-25" href="#__codelineno-11-25"></a>)
+<a id="__codelineno-11-26" name="__codelineno-11-26" href="#__codelineno-11-26"></a>trainset = torchvision.datasets.MNIST(root=&#39;./data&#39;, train=True, download=True, transform=transform)
+<a id="__codelineno-11-27" name="__codelineno-11-27" href="#__codelineno-11-27"></a>trainloader = torch.utils.data.DataLoader(trainset, batch_size=32, shuffle=True, num_workers=2)
+<a id="__codelineno-11-28" name="__codelineno-11-28" href="#__codelineno-11-28"></a>
+<a id="__codelineno-11-29" name="__codelineno-11-29" href="#__codelineno-11-29"></a># Train the initial model
+<a id="__codelineno-11-30" name="__codelineno-11-30" href="#__codelineno-11-30"></a>device = torch.device(&quot;cuda&quot; if torch.cuda.is_available() else &quot;cpu&quot;)
+<a id="__codelineno-11-31" name="__codelineno-11-31" href="#__codelineno-11-31"></a>net = Net().to(device)
+<a id="__codelineno-11-32" name="__codelineno-11-32" href="#__codelineno-11-32"></a>criterion = nn.CrossEntropyLoss()
+<a id="__codelineno-11-33" name="__codelineno-11-33" href="#__codelineno-11-33"></a>optimizer = optim.SGD(net.parameters(), lr=0.01, momentum=0.9)
+<a id="__codelineno-11-34" name="__codelineno-11-34" href="#__codelineno-11-34"></a>
+<a id="__codelineno-11-35" name="__codelineno-11-35" href="#__codelineno-11-35"></a>def train(net, dataloader, criterion, optimizer, device):
+<a id="__codelineno-11-36" name="__codelineno-11-36" href="#__codelineno-11-36"></a>    net.train()
+<a id="__codelineno-11-37" name="__codelineno-11-37" href="#__codelineno-11-37"></a>    running_loss = 0.0
+<a id="__codelineno-11-38" name="__codelineno-11-38" href="#__codelineno-11-38"></a>    for inputs, labels in dataloader:
+<a id="__codelineno-11-39" name="__codelineno-11-39" href="#__codelineno-11-39"></a>        inputs, labels = inputs.to(device), labels.to(device)
+<a id="__codelineno-11-40" name="__codelineno-11-40" href="#__codelineno-11-40"></a>        optimizer.zero_grad()
+<a id="__codelineno-11-41" name="__codelineno-11-41" href="#__codelineno-11-41"></a>        outputs = net(inputs)
+<a id="__codelineno-11-42" name="__codelineno-11-42" href="#__codelineno-11-42"></a>        loss = criterion(outputs, labels)
+<a id="__codelineno-11-43" name="__codelineno-11-43" href="#__codelineno-11-43"></a>        loss.backward()
+<a id="__codelineno-11-44" name="__codelineno-11-44" href="#__codelineno-11-44"></a>        optimizer.step()
+<a id="__codelineno-11-45" name="__codelineno-11-45" href="#__codelineno-11-45"></a>        running_loss += loss.item()
+<a id="__codelineno-11-46" name="__codelineno-11-46" href="#__codelineno-11-46"></a>    return running_loss
+<a id="__codelineno-11-47" name="__codelineno-11-47" href="#__codelineno-11-47"></a>
+<a id="__codelineno-11-48" name="__codelineno-11-48" href="#__codelineno-11-48"></a>for epoch in range(10):
+<a id="__codelineno-11-49" name="__codelineno-11-49" href="#__codelineno-11-49"></a>    loss = train(net, trainloader, criterion, optimizer, device)
+<a id="__codelineno-11-50" name="__codelineno-11-50" href="#__codelineno-11-50"></a>    print(f&quot;Epoch {epoch+1}: Loss = {loss}&quot;)
+<a id="__codelineno-11-51" name="__codelineno-11-51" href="#__codelineno-11-51"></a>
+<a id="__codelineno-11-52" name="__codelineno-11-52" href="#__codelineno-11-52"></a># Compute importance scores (e.g., magnitude-based pruning)
+<a id="__codelineno-11-53" name="__codelineno-11-53" href="#__codelineno-11-53"></a>def compute_importance_scores(net, dataloader, device):
+<a id="__codelineno-11-54" name="__codelineno-11-54" href="#__codelineno-11-54"></a>    net.eval()
+<a id="__codelineno-11-55" name="__codelineno-11-55" href="#__codelineno-11-55"></a>    importance_scores = []
+<a id="__codelineno-11-56" name="__codelineno-11-56" href="#__codelineno-11-56"></a>    for inputs, _ in dataloader:
+<a id="__codelineno-11-57" name="__codelineno-11-57" href="#__codelineno-11-57"></a>        inputs = inputs.to(device)
+<a id="__codelineno-11-58" name="__codelineno-11-58" href="#__codelineno-11-58"></a>        outputs = net(inputs)
+<a id="__codelineno-11-59" name="__codelineno-11-59" href="#__codelineno-11-59"></a>        grad_outputs = torch.zeros_like(outputs).to(device)
+<a id="__codelineno-11-60" name="__codelineno-11-60" href="#__codelineno-11-60"></a>        outputs.backward(grad_outputs)
+<a id="__codelineno-11-61" name="__codelineno-11-61" href="#__codelineno-11-61"></a>        for param in net.parameters():
+<a id="__codelineno-11-62" name="__codelineno-11-62" href="#__codelineno-11-62"></a>            if param.grad is not None:
+<a id="__codelineno-11-63" name="__codelineno-11-63" href="#__codelineno-11-63"></a>                importance_scores.append(torch.abs(param.grad))
+<a id="__codelineno-11-64" name="__codelineno-11-64" href="#__codelineno-11-64"></a>    return torch.cat(importance_scores)
+<a id="__codelineno-11-65" name="__codelineno-11-65" href="#__codelineno-11-65"></a>
+<a id="__codelineno-11-66" name="__codelineno-11-66" href="#__codelineno-11-66"></a># Prune the network based on importance scores
+<a id="__codelineno-11-67" name="__codelineno-11-67" href="#__codelineno-11-67"></a>def prune_network(net, importance_scores, pruning_rate):
+<a id="__codelineno-11-68" name="__codelineno-11-68" href="#__codelineno-11-68"></a>    flat_scores = importance_scores.flatten()
+<a id="__codelineno-11-69" name="__codelineno-11-69" href="#__codelineno-11-69"></a>    k = int(len(flat_scores) * pruning_rate)
+<a id="__codelineno-11-70" name="__codelineno-11-70" href="#__codelineno-11-70"></a>    threshold = torch.topk(flat_scores, k).values.min()
+<a id="__codelineno-11-71" name="__codelineno-11-71" href="#__codelineno-11-71"></a>
+<a id="__codelineno-11-72" name="__codelineno-11-72" href="#__codelineno-11-72"></a>    for name, module in net.named_modules():
+<a id="__codelineno-11-73" name="__codelineno-11-73" href="#__codelineno-11-73"></a>        if isinstance(module, nn.Linear):
+<a id="__codelineno-11-74" name="__codelineno-11-74" href="#__codelineno-11-74"></a>            importance_scores_layer = importance_scores[name]
+<a id="__codelineno-11-75" name="__codelineno-11-75" href="#__codelineno-11-75"></a>            mask = importance_scores_layer &gt; threshold
+<a id="__codelineno-11-76" name="__codelineno-11-76" href="#__codelineno-11-76"></a>            module.weight.data *= mask.float()
+<a id="__codelineno-11-77" name="__codelineno-11-77" href="#__codelineno-11-77"></a>            if module.bias is not None:
+<a id="__codelineno-11-78" name="__codelineno-11-78" href="#__codelineno-11-78"></a>                module.bias.data *= mask.float()
+<a id="__codelineno-11-79" name="__codelineno-11-79" href="#__codelineno-11-79"></a>
+<a id="__codelineno-11-80" name="__codelineno-11-80" href="#__codelineno-11-80"></a># Fine-tune the pruned model
+<a id="__codelineno-11-81" name="__codelineno-11-81" href="#__codelineno-11-81"></a>def fine_tune(net, dataloader, criterion, optimizer, device):
+<a id="__codelineno-11-82" name="__codelineno-11-82" href="#__codelineno-11-82"></a>    net.train()
+<a id="__codelineno-11-83" name="__codelineno-11-83" href="#__codelineno-11-83"></a>    for epoch in range(5):
+<a id="__codelineno-11-84" name="__codelineno-11-84" href="#__codelineno-11-84"></a>        running_loss = 0.0
+<a id="__codelineno-11-85" name="__codelineno-11-85" href="#__codelineno-11-85"></a>        for inputs, labels in dataloader:
+<a id="__codelineno-11-86" name="__codelineno-11-86" href="#__codelineno-11-86"></a>            inputs, labels = inputs.to(device), labels.to(device)
+<a id="__codelineno-11-87" name="__codelineno-11-87" href="#__codelineno-11-87"></a>            optimizer.zero_grad()
+<a id="__codelineno-11-88" name="__codelineno-11-88" href="#__codelineno-11-88"></a>            outputs = net(inputs)
+<a id="__codelineno-11-89" name="__codelineno-11-89" href="#__codelineno-11-89"></a>            loss = criterion(outputs, labels)
+<a id="__codelineno-11-90" name="__codelineno-11-90" href="#__codelineno-11-90"></a>            loss.backward()
+<a id="__codelineno-11-91" name="__codelineno-11-91" href="#__codelineno-11-91"></a>            optimizer.step()
+<a id="__codelineno-11-92" name="__codelineno-11-92" href="#__codelineno-11-92"></a>            running_loss += loss.item()
+<a id="__codelineno-11-93" name="__codelineno-11-93" href="#__codelineno-11-93"></a>        print(f&quot;Fine-tuning Epoch {epoch+1}: Loss = {running_loss}&quot;)
+<a id="__codelineno-11-94" name="__codelineno-11-94" href="#__codelineno-11-94"></a>
+<a id="__codelineno-11-95" name="__codelineno-11-95" href="#__codelineno-11-95"></a># Perform iterative pruning
+<a id="__codelineno-11-96" name="__codelineno-11-96" href="#__codelineno-11-96"></a>pruning_rate = 0.2
+<a id="__codelineno-11-97" name="__codelineno-11-97" href="#__codelineno-11-97"></a>num_iterations = 5
+<a id="__codelineno-11-98" name="__codelineno-11-98" href="#__codelineno-11-98"></a>
+<a id="__codelineno-11-99" name="__codelineno-11-99" href="#__codelineno-11-99"></a>for iteration in range(num_iterations):
+<a id="__codelineno-11-100" name="__codelineno-11-100" href="#__codelineno-11-100"></a>    importance_scores = compute_importance_scores(net, trainloader, device)
+<a id="__codelineno-11-101" name="__codelineno-11-101" href="#__codelineno-11-101"></a>    prune_network(net, importance_scores, pruning_rate)
+<a id="__codelineno-11-102" name="__codelineno-11-102" href="#__codelineno-11-102"></a>    fine_tune(net, trainloader, criterion, optimizer, device)
+</code></pre></div>
+In this example, we use the MNIST dataset and a simple fully connected neural network model.</p>
+<h3 id="comparision-of-the-accuracy-of-single-shot-pruning-and-iterative-pruning-in-various-models">Comparision of the accuracy of Single shot pruning and Iterative pruning in various models</h3>
+<p><img alt="op" src="../images/Screenshot%202023-07-13%20150204.png" /></p>
+<h2 id="advantages-of-single-shot-and-iterative-pruning">Advantages of Single-shot and Iterative Pruning</h2>
+<p>The choice between single-shot pruning and iterative pruning depends on various factors, including the specific requirements of your task, the available computational resources, and the desired balance between model size and accuracy. Both approaches have their advantages and considerations:</p>
+<h4 id="single-shot-pruning">Single-shot pruning:</h4>
+<ul>
+<li><strong>Simplicity:</strong> Single-shot pruning involves pruning the network in a single pass, which can be simpler to implement compared to the iterative approach.</li>
+<li><strong>Reduced computational cost:</strong> Since single-shot pruning requires only one pass, it can be computationally more efficient compared to iterative pruning, which involves multiple passes of pruning and fine-tuning.</li>
+<li><strong>Fixed model size:</strong> Single-shot pruning provides a fixed and known model size after pruning, making it easier to deploy and manage the pruned model.</li>
+</ul>
+<h4 id="iterative-pruning_1">Iterative pruning:</h4>
+<ul>
+<li><strong>Better accuracy retention:</strong> Iterative pruning allows for gradual pruning, which can help maintain or recover model accuracy more effectively. It provides an opportunity to fine-tune the model after each pruning step, reducing the impact on accuracy compared to single-shot pruning.</li>
+<li><strong>More aggressive pruning:</strong> Iterative pruning allows for multiple iterations, enabling more aggressive pruning and potentially achieving higher compression rates.</li>
+<li><strong>Adaptive pruning:</strong> With iterative pruning, you can adaptively adjust the pruning threshold or rate based on the model's performance during the pruning process, leading to potentially better results.</li>
+</ul>
+<h2 id="conclusion">Conclusion</h2>
+<p>Single-shot pruning is a simpler and computationally more efficient approach, while iterative pruning offers better accuracy retention and the ability to achieve higher compression rates. The choice between them depends on the specific trade-offs and priorities for your particular use case. It's often recommended to experiment with both approaches and evaluate their impact on accuracy, model size, and computational requirements to determine the most suitable pruning method for your needs.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../page05/" class="btn btn-neutral float-left" title="Optimization techniques"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../page07/" class="btn btn-neutral float-right" title="Quantization">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../page05/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../page07/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

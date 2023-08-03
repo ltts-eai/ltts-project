@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://example.com/page12/" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>ONNX - LTTS - EAI</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "ONNX";
+        var mkdocs_page_input_path = "page12.md";
+        var mkdocs_page_url = "/page12/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> LTTS - EAI
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home page</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../page01/">Introduction to AI</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../page02/">Guideline to build framework</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../page03/">EAI frameworks</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../page04/">Interpreting TensorFlow lite framework</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../page05/">Optimization techniques</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../page06/">Pruning</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../page07/">Quantization</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../page08/">Knowledge Distillation</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../page09/">Compression</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../page10/">Hardware Acceleration</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../page11/">PyTorch</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="./">ONNX</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#build-onnx-from-source">BUILD ONNX FROM SOURCE</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#conversion-steps">CONVERSION STEPS</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../page14/">Optimization Techniques for PyTorch Framework</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../page15/">Model Compression with TensorFlow Lite: A Look into Reducing Model Size</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../page16/">Kernal fusion</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../page17/">Embedded hardware</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../page18/">TENSORFLOW</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../page19/">CAFFE</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../page20/">RESNET 50</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">LTTS - EAI</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a> &raquo;</li>
+      <li class="breadcrumb-item active">ONNX</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="onnx">ONNX</h1>
+<p>ONNX, or Open Neural Network Exchange, is an <strong>open-source</strong> standard for representing deep learning models. It was developed by Facebook and Microsoft in order to make it easier for researchers and engineers to move models between different deep-learning frameworks and hardware platforms.</p>
+<p>it allows models to be easily exported from one framework, such as PyTorch, and imported into another framework, such as TensorFlow. This can be especially useful for researchers who want to try out different frameworks for training and deploying their models</p>
+<p>ONNX also provides a set of tools for optimizing and quantizing models, which can help to reduce the memory and computational requirements of the model. This can be especially useful for deploying models on edge devices and other resource-constrained environments.</p>
+<p>Another important feature of ONNX is that it is supported by a wide range of companies and organizations. This includes not only Facebook and Microsoft, but also companies like Amazon, NVIDIA, and Intel. This wide range of support ensures that ONNX will continue to be actively developed and maintained, making it a robust and stable standard for representing deep learning models.</p>
+<p>-ONNX Runtime is an open-source inference engine for executing ONNX (Open Neural Network Exchange) models. It is designed to be high-performance and lightweight, making it well-suited for deployment on a wide range of hardware platforms, including edge devices, servers, and cloud services.</p>
+<p>-The ONNX Runtime provides a C++ API, a C# API, and a Python API for executing ONNX models. It also provides support for
+multiple backends, including CUDA and OpenCL, which allows it to run on a wide range of hardware platforms, such as NVIDIA GPUs and Intel CPUs.</p>
+<p>-ONNX Runtime can be very useful since you can use models in inference with a single framework no matter what hardware you
+are going to use. So without having to actually rewrite the code depending on whether we want to use a CPU, GPU, FPGA or
+whatever.</p>
+<p>-ONNX Runtime also provides support for a wide range of models, including both traditional machine learning models and deep learning models.</p>
+<p>-One of the main advantages of ONNX Runtime is its performance. It uses various techniques such as Just-In-Time (JIT) compilation, kernel fusion and subgraph partitioning to optimize the performance of the model. It also supports thread pooling and inter-node communication for distributed deployment which makes it a suitable choice for large-scale deployment. -One of the main advantages of ONNX Runtime is its performance. It uses various techniques such as Just-In-Time (JIT) compilation, kernel fusion and subgraph partitioning to optimize the performance of the model. It also supports thread pooling and inter-node communication for distributed deployment which makes it a suitable choice for large-scale deployment.</p>
+<p>FOR EXAMPLE:</p>
+<p>Let us look at an example scenario where your goal is to deploy your trained model via an iOS app. You are comfortable putting together neural network models in Keras, an easy-to-use interface for the TensorFlow framework. Your journey starts by understanding the hardware through which your app gets used by the user. Modern Apple devices come with Apple Neural Engine (ANE) as part of the chip.</p>
+<p>The A15 Bionic chip on iPhone 14 comes with 6-core CPU, 5-core GPU, and a 16-core Neural Engine (ANE). On this device, your deep learning model can work on CPU only, CPU and GPU, or all computing engines (CPU, GPU, and ANE). ANE is the fastest way to run your model, especially for heavy applications. On iOS, CoreML is the framework that is optimized for deep learning inference. Also, CoreML is built into the operating system which means there is no need for you to compile, link, or ship your ML binary libraries with the app.</p>
+<p>Now that your target framework is defined, you need to find a way to convert your trained model into Core ML. This task can be easily achieved via ONNX - convert your Keras model to ONNX using the tf2onnx library and convert ONNX to Core ML model using the onnx-coreml library in python. The Core ML model is now ready to be deployed into your app.
+<img alt="conversion" src="../images/img1.JPG" /></p>
+<h2 id="build-onnx-from-source">BUILD ONNX FROM SOURCE</h2>
+<p>Before building from source uninstall any existing versions of onnx pip uninstall onnx.</p>
+<p>c++17 or higher C++ compiler version is required to build ONNX from source on Windows. For other platforms, please use C++11 or higher versions.</p>
+<p>Windows
+If you are building ONNX from source, it is recommended that you also build Protobuf locally as a static library. The version distributed with conda-forge is a DLL, but ONNX expects it to be a static library. Building protobuf locally also lets you control the version of protobuf. The tested and recommended version is 3.20.2.</p>
+<p>The instructions in this README assume you are using Visual Studio. It is recommended that you run all the commands from a shell started from "x64 Native Tools Command Prompt for VS 2019" and keep the build system generator for cmake (e.g., cmake -G "Visual Studio 16 2019") consistent while building protobuf as well as ONNX.</p>
+<p><img alt="Frameworks" src="../images/img2.PNG" /></p>
+<h2 id="conversion-steps">CONVERSION STEPS</h2>
+<p>-&gt; All frameworks have their own way to convert their models to ONNX. But there are some common steps that you need to follow.only saving the model weighs we ll not be able to convert to ONNX,the model architecture is required and really important to convert your model to onnx.
+-&gt; Model weights are the weights of the different layers which are used to compute the output of the model. So, they are equally important to successfully convert the model.</p>
+<h1 id="input-names-and-output-names">input names and output names</h1>
+<p>-&gt; we will need to define the input names and the output names of our model. These metadata are used to describe the inputs and outputs of your model.
+ONNX will trace the different layers of your model in order to create a graph of theses layers.
+-&gt; While tracing the layers, ONNX will also need an input sample to understand how the model is working and what operators are used to compute the outputs.
+-&gt; The selected sample will be the input of the first layer of the model and is also used to define the input shape of the model.</p>
+<h1 id="dynamic-axes">dynamic axes</h1>
+<p>-&gt;Then, ONNX requires to know the dynamic axes of your model. Most of the time during the conversion, you will use a batch size of 1.
+-&gt;But if you want to have a model that can take a batch of N samples, you will need to define the dynamic axes of your model to accept a batch of N samples.</p>
+<h1 id="conversion-evaluation">conversion evaluation</h1>
+<p>Finally, we need to evaluate the converted model to ensure that it is a sustainable ONNX model and it is working as expected. There are two separate steps to evaluate the converted model.</p>
+<p>The first step is to use the ONNX’s API to check the model’s validity. This is done by calling the onnx.checker.check_model function. This will verify the model’s structure and confirm if the model has a valid ONNX scheme or not.</p>
+<p>Each node in the model is evaluated by checking the inputs and outputs of the node.</p>
+<p>The second step is to compare the output of the converted model with the output of the original model. This is done by comparing both outputs with the numpy.testing.assert_allclose function.
+This function will compare the two outputs and will raise an error if the two outputs are not equal, based on the rtol and atol parameters.
+<em>conversion of a pytorch model to onnx</em></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>import torch
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>import torchvision
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>from PIL import Image
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>import numpy as np
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>!pip3 install onnx
+</code></pre></div>
+<p><img alt="o/p" src="../images/img11.png" /></p>
+<p>~<em>here we will load the pretrained ResNet18:</em></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>resnet = torchvision.models.resnet18(pretrained=True)
+</code></pre></div>
+<p><img alt="o/p" src="../images/img12.png" /></p>
+<p>~<em>We will download an example image from PyTorhc</em></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>import urllib
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>url, filename = (&quot;https://github.com/pytorch/hub/raw/master/images/dog.jpg&quot;, &quot;dog.jpg&quot;) # Notebook Link will be in description
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>urllib.request.urlretrieve(url, filename)
+</code></pre></div>
+<p><img alt="o/p" src="../images/img13.png" /></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>from torchvision import transforms
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>inp_image = Image.open(&#39;/content/dog.jpg&#39;)
+</code></pre></div>
+<p><img alt="o/p" src="../images/img14.png" /></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>preprocess = transforms.Compose([
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>                                 transforms.Resize(256),
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>                                 transforms.CenterCrop(224),
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>                                 transforms.ToTensor(),
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>                                 transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>])
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>input_tensor = preprocess(inp_image)
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>inp_batch = input_tensor.unsqueeze(0)
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>device =torch.device(&quot;cuda&quot; if torch.cuda.is_available() else &quot;cpu&quot;)
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>inp_batch.to(device)
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>resnet.to(device)
+</code></pre></div>
+<p><img alt="o/p" src="../images/img15.png" /></p>
+<p><img alt="o/p" src="../images/img16.png" /></p>
+<p><img alt="o/p" src="../images/img17.png" /></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>with torch.no_grad():
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>  output = resnet(inp_batch)
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>print(output[0])
+</code></pre></div>
+<p><img alt="o/p" src="../images/img18.png" /></p>
+<p><img alt="o/p" src="../images/img19.png" /></p>
+<p>~<em>Output of shape 1000, confidence scores for each of the imagenet classes</em></p>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>import torch.onnx
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>torch.onnx.export(resnet,
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>                  inp_batch,
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>                  &quot;resnet18.onnx&quot;,
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>                  export_params=True,
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>                  opset_version=10)
+</code></pre></div>
+<img alt="o/p" src="../images/comparison.jpg" /></p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../page11/" class="btn btn-neutral float-left" title="PyTorch"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../page14/" class="btn btn-neutral float-right" title="Optimization Techniques for PyTorch Framework">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../page11/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../page14/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

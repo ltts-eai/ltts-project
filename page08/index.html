@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://example.com/page08/" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Knowledge Distillation - LTTS - EAI</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Knowledge Distillation";
+        var mkdocs_page_input_path = "page08.md";
+        var mkdocs_page_url = "/page08/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> LTTS - EAI
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home page</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../page01/">Introduction to AI</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../page02/">Guideline to build framework</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../page03/">EAI frameworks</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../page04/">Interpreting TensorFlow lite framework</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../page05/">Optimization techniques</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../page06/">Pruning</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../page07/">Quantization</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="./">Knowledge Distillation</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#the-different-kinds-of-knowledge-in-a-teacher-model">The different kinds of knowledge in a teacher model</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#1-response-based-knowledge">1. Response-based knowledge</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#2-feature-based-knowledge">2. Feature-based knowledge</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#3-relation-based-knowledge">3. Relation-based knowledge</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#training">Training</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#1-offline-distillation">1. Offline distillation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#2-online-distillation">2. Online distillation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#3-self-distillation">3. Self-distillation</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#architecture">Architecture</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../page09/">Compression</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../page10/">Hardware Acceleration</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../page11/">PyTorch</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../page12/">ONNX</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../page14/">Optimization Techniques for PyTorch Framework</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../page15/">Model Compression with TensorFlow Lite: A Look into Reducing Model Size</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../page16/">Kernal fusion</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../page17/">Embedded hardware</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../page18/">TENSORFLOW</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../page19/">CAFFE</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../page20/">RESNET 50</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">LTTS - EAI</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a> &raquo;</li>
+      <li class="breadcrumb-item active">Knowledge Distillation</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="knowledge-distillation">Knowledge Distillation</h1>
+<p>Knowledge Distillation is a technique used in machine learning to transfer the knowledge from a large, complex model to a smaller, simpler model. It involves training the smaller model to mimic the output of the larger model, by learning from the soft targets (probabilistic predictions) generated by the larger model, rather than the hard targets (actual labels) in the training data.</p>
+<p>The main idea behind knowledge distillation is that a large, complex model has learned to capture the underlying patterns and structure in the data, which can be transferred to a smaller, simpler model through the soft targets generated by the larger model. By training the smaller model to mimic the output of the larger model, the smaller model can achieve comparable performance to the larger model, while using fewer resources and being more computationally efficient.</p>
+<p><img alt="img" src="../images/KnowledgeDistillation1.jpg" /></p>
+<p>Knowledge Distillation is typically performed after a large, complex model has been trained and can be used to create a smaller model that is optimized for deployment in scenarios with limited computational resources, such as mobile devices or IoT devices. In addition to reducing the size and complexity of a model, knowledge distillation can also help to reduce overfitting, as the smaller model is trained to learn from the soft targets generated by the larger model, which can be more robust to noisy or incomplete data.</p>
+<p>Overall, knowledge distillation is a powerful technique for transferring knowledge from a large, complex model to a smaller, simpler model, while maintaining the performance and accuracy of the original model.</p>
+<h2 id="the-different-kinds-of-knowledge-in-a-teacher-model">The different kinds of knowledge in a teacher model</h2>
+<p><img alt="img" src="../images/Knowledge-Distillation_2.jpg" /></p>
+<h3 id="1-response-based-knowledge">1. Response-based knowledge</h3>
+<p>As shown in Figure 2, response-based knowledge focuses on the final output layer of the teacher model. The hypothesis is that the student model will learn to mimic the predictions of the teacher model. As illustrated in Figure 3, This can be achieved by using a loss function, termed the distillation loss, that captures the difference between the logits of the student and the teacher model respectively. As this loss is minimized over training, the student model will become better at making the same predictions as the teacher.</p>
+<p>In the context of computer vision tasks like image classification, the soft targets comprise the response-based knowledge. Soft targets represent the probability distribution over the output classes and typically estimated using a softmax function. Each soft target’s contribution to the knowledge is modulated using a parameter called temperature. Response-based knowledge distillation based on soft targets is usually used in the context of supervised learning.</p>
+<p><img alt="img" src="../images/Knowledge-Distillation_3.jpg" /></p>
+<h3 id="2-feature-based-knowledge">2. Feature-based knowledge</h3>
+<p>A trained teacher model also captures knowledge of the data in its intermediate layers, which is especially pertinent for deep neural networks. The intermediate layers learn to discriminate specific features and this knowledge can be used to train a student model. As shown in Figure 4, the goal is to train the student model to learn the same feature activations as the teacher model. The distillation loss function achieves this by minimizing the difference between the feature activations of the teacher and the student models.</p>
+<p><img alt="img" src="../images/Knowledge-Distillation_4.jpg" /></p>
+<h3 id="3-relation-based-knowledge">3. Relation-based knowledge</h3>
+<p>In addition to knowledge represented in the output layers and the intermediate layers of a neural network, knowledge that captures the relationship between feature maps can also be used to train a student model. This form of knowledge, termed as relation-based knowledge is depicted in Figure 5. This relationship can be modeled as correlation between feature maps, graphs, similarity matrix, feature embeddings, or probabilistic distributions based on feature representations.</p>
+<p><img alt="img" src="../images/Knowledge-Distillation_5.jpg" /></p>
+<h2 id="training">Training</h2>
+<p>There are three principal types of methods for training student and teacher models, namely offline, online and self distillation. The categorization of the distillation training methods depends on whether the teacher model is modified at the same time as the student model or not</p>
+<p><img alt="img" src="../images/Knowledge-Distillation_6.jpg" /></p>
+<h3 id="1-offline-distillation">1. Offline distillation</h3>
+<p>Offline distillation is the most common method, where a pre-trained teacher model is used to guide the student model. In this scheme, the teacher model is first pre-trained on a training dataset, and then knowledge from the teacher model is distilled to train the student model. Given the recent advances in deep learning, a wide variety of pre-trained neural network models are openly available that can serve as the teacher depending on the use case. Offline distillation is an established technique in deep learning and easier to implement.</p>
+<h3 id="2-online-distillation">2. Online distillation</h3>
+<p>In offline distillation, the pre-trained teacher model is usually a large capacity deep neural network. For several use cases, a pre-trained model may not be available for offline distillation. To address this limitation, online distillation can be used where both the teacher and student models are updated simultaneously in a single end-to-end training process. Online distillation can be operationalized using parallel computing thus making it a highly efficient method.</p>
+<h3 id="3-self-distillation">3. Self-distillation</h3>
+<p>As shown in Figure 6, in self-distillation, the same model is used for the teacher and the student models. For instance, knowledge from deeper layers of a deep neural network can be used to train the shallow layers. It can be considered a special case of online distillation, and instantiated in several ways. Knowledge from earlier epochs of the teacher model can be transferred to its later epochs to train the student model.</p>
+<h2 id="architecture">Architecture</h2>
+<p>The design of the student-teacher network architecture is critical for efficient knowledge acquisition and distillation. Typically, there is a model capacity gap between the more complex teacher model and the simpler student model. This structural gap can be reduced through optimizing knowledge transfer via efficient student-teacher architectures.</p>
+<p>Transferring knowledge from deep neural networks is not straightforward due to their depth as well as breadth. The most common architectures for knowledge transfer include a student model that is:</p>
+<p>a shallower version of the teacher model with fewer layers and fewer neurons per layer,
+a quantized version of the teacher model,
+a smaller network with efficient basic operations,
+a smaller networks with optimized global network architecture,
+the same model as the teacher.
+In addition to the above methods, recent advances like neural architecture search can also be employed for designing an optimal student model architecture given a particular teacher model.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../page07/" class="btn btn-neutral float-left" title="Quantization"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../page09/" class="btn btn-neutral float-right" title="Compression">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../page07/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../page09/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

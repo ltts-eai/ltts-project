@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://example.com/page15/" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Model Compression with TensorFlow Lite: A Look into Reducing Model Size - LTTS - EAI</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Model Compression with TensorFlow Lite: A Look into Reducing Model Size";
+        var mkdocs_page_input_path = "page15.md";
+        var mkdocs_page_url = "/page15/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> LTTS - EAI
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home page</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../page01/">Introduction to AI</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../page02/">Guideline to build framework</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../page03/">EAI frameworks</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../page04/">Interpreting TensorFlow lite framework</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../page05/">Optimization techniques</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../page06/">Pruning</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../page07/">Quantization</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../page08/">Knowledge Distillation</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../page09/">Compression</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../page10/">Hardware Acceleration</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../page11/">PyTorch</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../page12/">ONNX</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../page14/">Optimization Techniques for PyTorch Framework</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="./">Model Compression with TensorFlow Lite: A Look into Reducing Model Size</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#why-is-model-compression-important">Why is Model Compression important?</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#the-problem-of-model-size">The Problem of Model Size</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#an-intuitive-understanding-of-the-theory">An intuitive understanding of the theory</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#tensorflow-lite-to-the-rescue">TensorFlow Lite to the rescue!</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#quantisation">Quantisation</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#perks-of-model-compression">Perks of Model Compression</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#hidden-perks-of-model-compression">Hidden Perks of Model Compression</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#lets-try-it-out">Let’s try it out!</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#import-the-fasion-mnist-dataset">Import the fasion MNIST dataset</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#explore-the-data">Explore the data</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#preprocessing">Preprocessing</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#inference-time-of-tensorflow-model">Inference Time of tensorflow model</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#size-and-accuracy-of-the-model">Size and Accuracy of the model</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#tflite-model">Tflite Model</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#size-of-the-tflite-model">Size of the Tflite model</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#check-input-tensor-shape">Check input tensor shape</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#resize-tensor-shape">Resize tensor shape</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#inference-time-of-the-tflite-model">Inference time of the Tflite model</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#accuracy-of-the-tflite-model">Accuracy of the Tflite model</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#analysis-of-results">Analysis of Results</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#pros-and-cons-of-tensorflowlite">Pros and Cons of TensorFlowLite</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#conclusion">Conclusion</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../page16/">Kernal fusion</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../page17/">Embedded hardware</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../page18/">TENSORFLOW</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../page19/">CAFFE</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../page20/">RESNET 50</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">LTTS - EAI</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a> &raquo;</li>
+      <li class="breadcrumb-item active">Model Compression with TensorFlow Lite: A Look into Reducing Model Size</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="model-compression-with-tensorflow-lite-a-look-into-reducing-model-size">Model Compression with TensorFlow Lite: A Look into Reducing Model Size</h1>
+<h4 id="why-is-model-compression-important">Why is Model Compression important?</h4>
+<p>A significant problem in the arms race to produce more accurate models is complexity, which leads to the problem of size. These models are usually huge and resource-intensive, which leads to greater space and time consumption. (Takes up more space in memory and slower in prediction as compared to smaller models)</p>
+<h4 id="the-problem-of-model-size">The Problem of Model Size</h4>
+<p>A large model size is a common by product when attempting to push the limits of model accuracy in predicting unseen data in deep learning applications. For example, with more nodes, we can detect subtler features in the dataset. However, for project requirements such as using AI in embedded systems that depend on fast predictions, we are limited by the available computational resources. Furthermore, prevailing edge devices do not have networking capabilities, as such, we are not able to utilize cloud computing. This results in the inability to use massive models which would take too long to get meaningful predictions.
+As such, we will need to optimize our performance to size, when designing our model.</p>
+<h4 id="an-intuitive-understanding-of-the-theory">An intuitive understanding of the theory</h4>
+<p>To overly simplify for the gist of understanding machine learning models, a neural network is a set of nodes with weights(W) that connect between nodes. You can think of this as a set of instructions that we optimize to increase our likelihood of generating our desired class. The more specific this set of instructions are, the greater our model size, which is dependent on the size of our parameters (our configuration variables such as weight).</p>
+<p><img alt="pic" src="../images/Picture1.png" /></p>
+<h4 id="tensorflow-lite-to-the-rescue">TensorFlow Lite to the rescue!</h4>
+<p>TensorFlow Lite deals with the Quantisation and prunning and does a great job in abstracting the hard parts of model compression.
+TensorFlow Lite covers:
+*   Post-Training Quantization— Reduce Float16— Hybrid Quantization— Integer Quantization
+*   During-Training Quantization
+*   Post-Training Pruning
+*   Post-Training Clustering
+The most common and easiest to implement method would be post-training quantization. The usage of quantization is the limiting of the bits of precision of our model parameters as such this reduces the amount of data that is needed to be stored.</p>
+<h4 id="quantisation">Quantisation</h4>
+<p>Artificial neural networks consist of activation nodes, the connections between the nodes, and a weight parameter associated with each connection. It is these weight parameters and activation node computations that can be quantized. For perspective, running a neural network on hardware can easily result in many millions of multiplication and addition operations. Lower-bit mathematical operations with quantized parameters combined with quantizing intermediate calculations of a neural network results in large computational gains and higher performance.</p>
+<p>Besides the performance benefit, quantized neural networks also increase power efficiency for two reasons: reduced memory access costs and increased compute efficiency. Using the lower-bit quantized data requires less data movement, both on-chip and off-chip, which reduces memory bandwidth and saves significant energy. Lower-precision mathematical operations, such as an 32-bit integer multiply versus a 64-bit floating point multiply, consume less energy and increase compute efficiency, thus reducing power consumption. In addition, reducing the number of bits for representing the neural network’s parameters results in less memory storage. </p>
+<p>I will only go through post-training Hybrid/Dynamic range quantization because it is the easiest to implement, has a great amount of impact in size reduction with minimal loss.</p>
+<p>To reference our earlier neural network diagram, our model parameters(weights) which refer to the lines connecting each note can be seen to represent its literal weight(significance) or the importance of the node to predict our desired outcome.</p>
+<p>Originally, we gave <strong>64-bits</strong> to each weight, known as the tf.float64(64-bit single-precision floating-point), to reduce the size of our model, we would essentially shave off from <strong>64-bits</strong> to <strong>32-bits</strong>(tf.float32) or <strong>16-bits</strong>( tf.float16) depending on the type of quantization used.</p>
+<p>We can intuitively see that this poses significant exponential size reductions as with a bigger and more complex the model, the greater the number of nodes and subsequently the greater number of weights which leads to a more significant size reduction especially for fully-connected neural networks, which has each layer of nodes connected to each of the nodes in the next layer.</p>
+<h4 id="perks-of-model-compression">Perks of Model Compression</h4>
+<ul>
+<li>Smaller model sizes — Models can actually be stored into embedded devices (ESP32 has ~4Mb of Flash Memory)</li>
+<li>Faster Prediction Rates — This speeds up actionability, which provides viability for real-time decisions.</li>
+<li>Lowered power consumption — An often overlooked feature as environments that train models often come with a constant supply of power, embedded devices usually run on a battery thus this is the most important feature.</li>
+</ul>
+<h4 id="hidden-perks-of-model-compression">Hidden Perks of Model Compression</h4>
+<p>You might be quick to think that reducing the amount of information we store for each weight, would always be detrimental to our model, however, <strong>quantization promotes generalization</strong> which was a huge plus in <strong>preventing overfitting</strong> — a common problem with complex models.By Jerome Friedman, the father of gradient boost, empirical evidence shows that lots of small steps in the right direction result in better predictions with test data. By quantization, it is possible to get an improved accuracy due to the decreased sensitivity of the weights.</p>
+<p>Imagine if, in our dataset, we get lucky, every time we try to detect a cookie our dataset shows us a chocolate chip cookie, our cookie detection would get a high training accuracy, however, if in real-life we only have raisin cookies, it would have a low test accuracy. Generalization is like blurring our chocolate chip so that our model realizes as long as there is this blob, it is a cookie.The same can be said for other compression methods such as pruning. It is in this vein whereby dropout also can improve unseen accuracy as randomly dropping nodes during training promotes generalization as well.</p>
+<h4 id="lets-try-it-out">Let’s try it out!</h4>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">import</span> <span class="nn">os</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="kn">from</span> <span class="nn">tensorflow</span> <span class="kn">import</span> <span class="n">keras</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="kn">from</span> <span class="nn">tensorflow.keras.layers</span> <span class="kn">import</span> <span class="n">Flatten</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="kn">from</span> <span class="nn">tensorflow.keras.layers</span> <span class="kn">import</span> <span class="n">Dense</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="kn">from</span> <span class="nn">tensorflow.keras.losses</span> <span class="kn">import</span> <span class="n">SparseCategoricalCrossentropy</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">accuracy_score</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nb">print</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span>
+</code></pre></div>
+<img alt="op" src="../images/Screenshot%202023-04-12%20121338.png" />
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>def get_file_size(file_path):
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>    size = os.path.getsize(file_path)
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>    return size
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>def convert_bytes(size, unit=None):
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>    if unit == &quot;KB&quot;:
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>        return print(&#39;File size: &#39; + str(round(size / 1024, 3)) + &#39; Kilobytes&#39;)
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>    elif unit == &quot;MB&quot;:
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>        return print(&#39;File size: &#39; + str(round(size / (1024 * 1024), 3)) + &#39; Megabytes&#39;)
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>    else:
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>        return print(&#39;File size: &#39; + str(size) + &#39; bytes&#39;)
+</code></pre></div></p>
+<h5 id="import-the-fasion-mnist-dataset">Import the fasion MNIST dataset</h5>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a> fashion_mnist = keras.datasets.fashion_mnist
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>(train_images, train_labels), (test_images, test_labels) = fashion_mnist.load_data()
+</code></pre></div>
+<img alt="op" src="../images/Screenshot%202023-04-12%20121417.png" />
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>class_names = [&#39;T-shirt/top&#39;, &#39;Trouser&#39;, &#39;Pullover&#39;, &#39;Dress&#39;, &#39;Coat&#39;,
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>               &#39;Sandal&#39;, &#39;Shirt&#39;, &#39;Sneaker&#39;, &#39;Bag&#39;, &#39;Ankle boot&#39;]
+</code></pre></div></p>
+<h5 id="explore-the-data">Explore the data</h5>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>train_images.shape
+</code></pre></div>
+<img alt="op" src="../images/Screenshot%202023-04-12%20121432.png" />
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>len(train_labels)
+</code></pre></div>
+<img alt="op" src="../images/Screenshot%202023-04-12%20121440.png" />
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>np.unique(train_labels)
+</code></pre></div>
+<img alt="op" src="../images/Screenshot%202023-04-12%20121451.png" />
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>test_images.shape
+</code></pre></div>
+<img alt="op" src="../images/Screenshot%202023-04-12%20121502.png" />
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>len(test_labels)
+</code></pre></div>
+<img alt="op" src="../images/Screenshot%202023-04-12%20121517.png" /></p>
+<h5 id="preprocessing">Preprocessing</h5>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>plt.figure()
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>plt.imshow(train_images[88])
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>plt.colorbar()
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>plt.grid(False)
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>plt.show()
+</code></pre></div>
+<img alt="op" src="../images/Screenshot%202023-04-12%20121541.png" />
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>train_images = train_images / 255.0
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>test_images = test_images / 255.0
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>model = keras.Sequential([
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>    Flatten(input_shape=(28, 28)),
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>    Dense(128, activation=&#39;relu&#39;),
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>    Dense(10)
+<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>])
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>model.compile(optimizer=&#39;adam&#39;,
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>              loss= SparseCategoricalCrossentropy(from_logits=True),
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>              metrics=[&#39;accuracy&#39;])
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>model.fit(train_images, train_labels, epochs=15)
+</code></pre></div>
+<img alt="op" src="../images/Screenshot%202023-04-12%20121557.png" />
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>KERAS_MODEL_NAME = &quot;tf_fashion.h5&quot;
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>model.save(KERAS_MODEL_NAME)
+</code></pre></div></p>
+<h5 id="inference-time-of-tensorflow-model">Inference Time of tensorflow model</h5>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>model = tf.keras.models.load_model(&#39;tf_fashion.h5&#39;)
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>_ = model.predict(test_images[:1])
+</code></pre></div>
+<img alt="op" src="../images/Screenshot%202023-04-12%20121615.png" />
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>start_time = time.time()
+<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>output = model.predict(test_images[:1])
+<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>end_time = time.time()
+<a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a>inference_time = end_time - start_time
+<a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a>
+<a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a>print(&#39;Inference time:&#39;, inference_time)
+</code></pre></div>
+<img alt="op" src="../images/Screenshot%202023-04-12%20121621.png" /></p>
+<h5 id="size-and-accuracy-of-the-model">Size and Accuracy of the model</h5>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>convert_bytes(get_file_size(KERAS_MODEL_NAME), &quot;MB&quot;)
+</code></pre></div>
+<img alt="op" src="../images/Screenshot%202023-04-12%20121632.png" />
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>test_loss, test_acc = model.evaluate(test_images,  test_labels, verbose=2)
+<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>print(&#39;\nTest accuracy:&#39;, test_acc)
+</code></pre></div>
+<img alt="op" src="../images/Screenshot%202023-04-12%20121647.png" /></p>
+<h5 id="tflite-model">Tflite Model</h5>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>sTF_LITE_MODEL_FILE_NAME = &quot;tf_lite_model.tflite&quot;
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>tf_lite_converter = tf.lite.TFLiteConverter.from_keras_model(model)
+<a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a>tflite_model = tf_lite_converter.convert()
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a> tflite_model_name = TF_LITE_MODEL_FILE_NAME
+<a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a>open(tflite_model_name, &quot;wb&quot;).write(tflite_model)
+</code></pre></div>
+<img alt="op" src="../images/Screenshot%202023-04-12%20121712.png" /></p>
+<h5 id="size-of-the-tflite-model">Size of the Tflite model</h5>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>convert_bytes(get_file_size(TF_LITE_MODEL_FILE_NAME), &quot;KB&quot;)
+</code></pre></div>
+<img alt="op" src="../images/Screenshot%202023-04-12%20121720.png" /></p>
+<h5 id="check-input-tensor-shape">Check input tensor shape</h5>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>interpreter = tf.lite.Interpreter(model_path = TF_LITE_MODEL_FILE_NAME)
+<a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a>input_details = interpreter.get_input_details()
+<a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a>output_details = interpreter.get_output_details()
+<a id="__codelineno-27-4" name="__codelineno-27-4" href="#__codelineno-27-4"></a>print(&quot;Input Shape:&quot;, input_details[0][&#39;shape&#39;])
+<a id="__codelineno-27-5" name="__codelineno-27-5" href="#__codelineno-27-5"></a>print(&quot;Input Type:&quot;, input_details[0][&#39;dtype&#39;])
+<a id="__codelineno-27-6" name="__codelineno-27-6" href="#__codelineno-27-6"></a>print(&quot;Output Shape:&quot;, output_details[0][&#39;shape&#39;])
+<a id="__codelineno-27-7" name="__codelineno-27-7" href="#__codelineno-27-7"></a>print(&quot;Output Type:&quot;, output_details[0][&#39;dtype&#39;])
+</code></pre></div>
+<img alt="op" src="../images/Screenshot%202023-04-12%20121726.png" /></p>
+<h5 id="resize-tensor-shape">Resize tensor shape</h5>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>interpreter.resize_tensor_input(input_details[0][&#39;index&#39;], (10000, 28, 28))
+<a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a>interpreter.resize_tensor_input(output_details[0][&#39;index&#39;], (10000, 10))
+<a id="__codelineno-28-3" name="__codelineno-28-3" href="#__codelineno-28-3"></a>interpreter.allocate_tensors()
+<a id="__codelineno-28-4" name="__codelineno-28-4" href="#__codelineno-28-4"></a>input_details = interpreter.get_input_details()
+<a id="__codelineno-28-5" name="__codelineno-28-5" href="#__codelineno-28-5"></a>output_details = interpreter.get_output_details()
+<a id="__codelineno-28-6" name="__codelineno-28-6" href="#__codelineno-28-6"></a>print(&quot;Input Shape:&quot;, input_details[0][&#39;shape&#39;])
+<a id="__codelineno-28-7" name="__codelineno-28-7" href="#__codelineno-28-7"></a>print(&quot;Input Type:&quot;, input_details[0][&#39;dtype&#39;])
+<a id="__codelineno-28-8" name="__codelineno-28-8" href="#__codelineno-28-8"></a>print(&quot;Output Shape:&quot;, output_details[0][&#39;shape&#39;])
+<a id="__codelineno-28-9" name="__codelineno-28-9" href="#__codelineno-28-9"></a>print(&quot;Output Type:&quot;, output_details[0][&#39;dtype&#39;])
+</code></pre></div>
+<img alt="op" src="../images/Screenshot%202023-04-12%20121734.png" />
+<div class="highlight"><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>test_images.dtype
+</code></pre></div>
+<img alt="op" src="../images/Screenshot%202023-04-12%20121738.png" />
+<div class="highlight"><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>test_imgs_numpy = np.array(test_images, dtype=np.float32)
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>interpreter.set_tensor(input_details[0][&#39;index&#39;], test_imgs_numpy)
+<a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a>interpreter.invoke()
+<a id="__codelineno-31-3" name="__codelineno-31-3" href="#__codelineno-31-3"></a>tflite_model_predictions = interpreter.get_tensor(output_details[0][&#39;index&#39;])
+<a id="__codelineno-31-4" name="__codelineno-31-4" href="#__codelineno-31-4"></a>print(&quot;Prediction results shape:&quot;, tflite_model_predictions.shape)
+<a id="__codelineno-31-5" name="__codelineno-31-5" href="#__codelineno-31-5"></a>prediction_classes = np.argmax(tflite_model_predictions, axis=1)
+</code></pre></div>
+<img alt="op" src="../images/Screenshot%202023-04-12%20121749.png" />
+<div class="highlight"><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a>interpreter = tf.lite.Interpreter(model_path=&#39;tf_lite_model.tflite&#39;)
+<a id="__codelineno-32-2" name="__codelineno-32-2" href="#__codelineno-32-2"></a>interpreter.allocate_tensors()
+</code></pre></div></p>
+<h5 id="inference-time-of-the-tflite-model">Inference time of the Tflite model</h5>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a> start_time = time.time()
+<a id="__codelineno-33-2" name="__codelineno-33-2" href="#__codelineno-33-2"></a>    interpreter.invoke()
+<a id="__codelineno-33-3" name="__codelineno-33-3" href="#__codelineno-33-3"></a>    end_time = time.time()
+<a id="__codelineno-33-4" name="__codelineno-33-4" href="#__codelineno-33-4"></a>    inference_time = end_time - start_time
+<a id="__codelineno-33-5" name="__codelineno-33-5" href="#__codelineno-33-5"></a>    inference_times.append(inference_time)
+<a id="__codelineno-33-6" name="__codelineno-33-6" href="#__codelineno-33-6"></a>
+<a id="__codelineno-33-7" name="__codelineno-33-7" href="#__codelineno-33-7"></a> print(&#39;Average inference time:&#39;, sum(inference_times) / len(inference_times))
+</code></pre></div>
+<img alt="op" src="../images/Screenshot%202023-04-12%20121758.png" /></p>
+<h5 id="accuracy-of-the-tflite-model">Accuracy of the Tflite model</h5>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a>acc = accuracy_score(prediction_classes, test_labels) 
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a>print(&#39;Test accuracy TFLITE model :&#39;, acc)
+</code></pre></div>
+<img alt="op" src="../images/Screenshot%202023-04-12%20121804.png" /></p>
+<h4 id="analysis-of-results">Analysis of Results</h4>
+<p><img alt="an" src="../images/analysis.png" /></p>
+<p><img alt="an" src="../images/Screenshot%202023-04-13%20140128.png" /></p>
+<h4 id="pros-and-cons-of-tensorflowlite">Pros and Cons of TensorFlowLite</h4>
+<p><strong>Pros:</strong>
+*    Easier to implement model compression
+*    Minimal effect on accuracy (Depending on model)
+*    Major speed up in prediction</p>
+<p><strong>Cons:</strong>
+*    Requires the latest Tensorflow version 2
+*    Relatively new , Many operations (ops) are not supported yet such as SELU
+*    Requires converting model which can fail
+*    Possible complications when running inference compared to our good friend.predict() as it is more convoluted.</p>
+<h4 id="conclusion">Conclusion</h4>
+<p>Despite its cons, TensorFlow Lite serves as a powerful tool with great potential that surpassed my expectations. I foresee in the near future, model compression being more widely used as the demand for AI in embedded devices inevitably grows, which gives TFLite a reason to provide greater operation coverage. With its shortcomings that can be mitigated by custom implementations, TensorFlow Lite for model compression is worth a shot.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../page14/" class="btn btn-neutral float-left" title="Optimization Techniques for PyTorch Framework"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../page16/" class="btn btn-neutral float-right" title="Kernal fusion">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../page14/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../page16/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
